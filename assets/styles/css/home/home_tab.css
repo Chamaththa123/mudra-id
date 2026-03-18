@@ -1,0 +1,202 @@
+/* ===== Home – Tablet & small laptop styles ===== */
+
+@media (max-width: 1024px) {
+  .home-hero-header {
+    padding: 1.25rem 3rem;
+  }
+  .home-hero-section {
+    min-height: auto;
+  }
+  .home-main {
+    min-height: auto;
+    padding: 1.25rem 3rem;
+  }
+  .home-hero {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    gap: 2rem;
+  }
+  .home-hero-content {
+    max-width: none;
+  }
+  .home-hero-desc {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  /* Dashboard wrap: same as desktop – right side, vertically centered */
+  .home-dashboard-wrap {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) translateZ(0);
+    justify-content: flex-end;
+    margin-top: 50px;
+  }
+  .home-dashboard-img {
+    max-width: 100%;
+    width: min(100%, 420px);
+  }
+  /* Tab view: use tab dashboard image, hide desktop image */
+  .home-dashboard-img--desktop {
+    display: none;
+  }
+  .home-dashboard-img--tab {
+    display: block;
+  }
+
+  /* Section 2: tablet animation only */
+  .home-section2-visual .home-section2-anim--desktop,
+  .home-section2-visual .home-section2-anim--mobile {
+    display: none;
+  }
+  .home-section2-visual .home-section2-anim--tab {
+    display: block;
+  }
+
+  /* Section 2 tab layout: content on top, diagram below (stacked) */
+  .home-section--shift .home-section-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .home-section--shift .home-section-content {
+    max-width: 100%;
+  }
+  .home-section--shift .home-section-visual {
+    width: 60%;
+    margin-inline: auto;
+    justify-content: center;
+  }
+
+  /* Sections: tab view */
+  .home-section {
+    padding: 0 3rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  .home-section-title {
+    font-weight: 500;
+    font-size: 2.5rem;
+  }
+  .home-section-content {
+    max-width: 360px;
+  }
+  .home-section-btns {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 6rem;
+    /* margin-bottom: 6rem; */
+  }
+  .home-section-btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* Footer: tab view */
+  .home-footer {
+    margin-top: 2rem;
+  }
+
+  .home-footer-bg-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%;
+    max-width: 400px;
+    height: 100%;
+    min-height: 400px;
+    background: url("../../../img/FooterBackgroundLogo.png") no-repeat right 0 top 0;
+    background-size: contain;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .home-footer-inner {
+    padding: 2rem 2rem 2.5rem;
+  }
+  .home-footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 2rem 2rem;
+    align-items: start;
+    padding-bottom: 2.5rem;
+  }
+  .home-footer-brand {
+    max-width: none;
+  }
+  .home-footer-logo-img {
+    object-fit: contain;
+    display: block;
+  }
+  .home-footer-desc {
+    margin-bottom: 1rem;
+  }
+  .home-footer-col {
+    justify-self: start;
+    text-align: left;
+  }
+  .home-footer-bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  .home-footer-contact-col {
+    justify-self: start;
+  }
+  .home-footer-contact-item {
+    justify-content: flex-start;
+  }
+  .home-footer-links a,
+  .home-footer-links--underlined a {
+    text-decoration: none;
+  }
+  .home-footer-copyright {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #888;
+  }
+}
+
+/* Tab view 900px and below */
+@media (max-width: 900px) {
+  .home-hero-header {
+    padding: 0.75rem 1.5rem;
+  }
+  .home-main {
+    padding: 0.75rem 1.5rem 1rem;
+  }
+  .home-hero {
+    gap: 1rem;
+  }
+  .home-hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .home-hero-desc {
+    margin-bottom: 1rem;
+  }
+  .home-hero .home-section-btns {
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+  .home-dashboard-wrap {
+    margin-top: 24px;
+  }
+  .home-dashboard-img {
+    width: min(100%, 320px);
+  }
+
+  /* Section 3 (Features): reserve space on tab to prevent jolt when SVGs alternate */
+  .home-section3-anim-wrap {
+    min-height: 240px;
+  }
+  /* Section 6: same for alternating SVGs */
+  .home-section6-anim-wrap {
+    min-height: 240px;
+  }
+}
