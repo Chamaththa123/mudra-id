@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Modern animated hero ribbons</title>
+  <desc id="desc">Abstract flowing gradient ribbons with subtle glow designed for a website hero section.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f7f7fb"/>
+      <stop offset="100%" stop-color="#f0eff8"/>
+    </linearGradient>
+
+    <linearGradient id="ribbonGradA" x1="350" y1="760" x2="1180" y2="-80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6D3BFF"/>
+      <stop offset="48%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#FF8A8A"/>
+      <animate attributeName="x1" values="350;420;350" dur="16s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1180;1110;1180" dur="16s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <linearGradient id="ribbonGradB" x1="450" y1="820" x2="1250" y2="-40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="55%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#FDBA74"/>
+      <animate attributeName="y1" values="820;760;820" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="-40;20;-40" dur="18s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <linearGradient id="lineGrad" x1="410" y1="820" x2="1280" y2="-60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6A40FF"/>
+      <stop offset="45%" stop-color="#9B5CF7"/>
+      <stop offset="100%" stop-color="#F59E8B"/>
+    </linearGradient>
+
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(760 410) rotate(90) scale(320 280)">
+      <stop offset="0%" stop-color="#B26CFF" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#B26CFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1000 220) rotate(90) scale(280 240)">
+      <stop offset="0%" stop-color="#FF9A9A" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FF9A9A" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+
+    <filter id="glowStroke" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .driftA { animation: driftA 15s ease-in-out infinite; transform-origin: 50% 50%; }
+      .driftB { animation: driftB 18s ease-in-out infinite; transform-origin: 50% 50%; }
+      .glowPulse { animation: pulse 10s ease-in-out infinite; }
+      .lineFlow { stroke-dasharray: 18 14; animation: dash 10s linear infinite; }
+      .lineFlowSlow { stroke-dasharray: 12 18; animation: dash 14s linear infinite reverse; }
+      .fadeFloat { animation: fadeFloat 12s ease-in-out infinite; }
+
+      @keyframes driftA {
+        0%, 100% { transform: translate3d(0px, 0px, 0px) rotate(0deg); }
+        50% { transform: translate3d(22px, -12px, 0px) rotate(-1.1deg); }
+      }
+      @keyframes driftB {
+        0%, 100% { transform: translate3d(0px, 0px, 0px) rotate(0deg); }
+        50% { transform: translate3d(-18px, 18px, 0px) rotate(1deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.72; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.04); }
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: -320; }
+      }
+      @keyframes fadeFloat {
+        0%, 100% { opacity: 0.45; transform: translateY(0px); }
+        50% { opacity: 0.9; transform: translateY(-8px); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .driftA, .driftB, .glowPulse, .lineFlow, .lineFlowSlow, .fadeFloat { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <g class="glowPulse" filter="url(#softBlur)">
+    <ellipse cx="760" cy="420" rx="300" ry="240" fill="url(#glowA)"/>
+    <ellipse cx="1000" cy="210" rx="240" ry="190" fill="url(#glowB)"/>
+  </g>
+
+  <g opacity="0.95">
+    <path class="driftB" d="M196 942C314 724 452 538 562 332C653 163 704 -35 720 -150L1002 -150C978 78 902 276 822 420C734 577 632 724 536 942H196Z" fill="url(#ribbonGradB)" opacity="0.28"/>
+    <path class="driftA" d="M264 942C388 712 552 520 688 296C805 104 872 -54 894 -150L1144 -150C1108 102 1024 304 904 496C770 710 624 822 528 942H264Z" fill="url(#ribbonGradA)" opacity="0.56"/>
+    <path class="driftB" d="M396 942C492 790 634 620 778 422C914 235 1018 16 1078 -150L1286 -150C1220 62 1108 316 960 528C826 720 676 842 596 942H396Z" fill="url(#ribbonGradA)" opacity="0.42"/>
+  </g>
+
+  <g filter="url(#glowStroke)" stroke-linecap="round" stroke="url(#lineGrad)">
+    <path class="lineFlow driftA" d="M214 940C344 710 486 522 602 334C703 171 760 -21 782 -150" stroke-width="4" opacity="0.88"/>
+    <path class="lineFlowSlow driftB" d="M252 942C388 734 524 552 650 358C750 204 824 24 872 -150" stroke-width="3.5" opacity="0.75"/>
+    <path class="lineFlow driftA" d="M330 942C452 760 590 592 726 408C860 227 962 26 1038 -150" stroke-width="6" opacity="0.9"/>
+    <path class="lineFlowSlow driftB" d="M402 942C526 782 674 616 818 430C954 255 1074 56 1170 -150" stroke-width="3.2" opacity="0.65"/>
+    <path class="lineFlow driftA" d="M480 942C590 804 732 646 884 462C1046 264 1160 62 1264 -150" stroke-width="4.5" opacity="0.82"/>
+    <path class="lineFlowSlow driftB" d="M564 942C678 820 806 678 954 500C1120 301 1248 93 1358 -150" stroke-width="3" opacity="0.56"/>
+    <path class="lineFlow driftA" d="M618 942C724 838 860 700 1018 508C1176 314 1324 68 1452 -150" stroke-width="2.8" opacity="0.48"/>
+  </g>
+
+  <g class="fadeFloat" opacity="0.7">
+    <circle cx="1100" cy="180" r="3.5" fill="#9B5CF7"/>
+    <circle cx="1176" cy="248" r="2.8" fill="#F59E8B"/>
+    <circle cx="1008" cy="318" r="2.5" fill="#A855F7"/>
+    <circle cx="916" cy="428" r="2.8" fill="#F59E8B"/>
+    <circle cx="788" cy="538" r="2.4" fill="#9B5CF7"/>
+    <circle cx="688" cy="656" r="3" fill="#A855F7"/>
+  </g>
+</svg>
