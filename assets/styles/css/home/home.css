@@ -292,6 +292,40 @@
   background-color: #cdcdcd;
 }
 
+/* section 4 — full-width row under main 2 cols; inner 2 equal columns, gap 64px */
+.Section--section3 .section4-sub-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Section--section3 .section4-sub-col {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.section4-sub-label {
+  margin-top: -2px;
+  padding-bottom: 24px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #533afd;
+}
+
+
 /* section 9 */
 .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
   height: 48px;
@@ -372,6 +406,11 @@
     height: auto;
     min-height: 0;
     padding: 48px 0;
+  }
+
+  .Section--section3 .section4-sub-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .Section--section3 .Mobile-frame {
