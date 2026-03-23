@@ -227,36 +227,47 @@
   margin-bottom: 0.5rem;
 }
 
-/* section 3 — How It Works: equal columns A & B, same 710px height, gap 64px */
+/* section 3 — How It Works: equal columns A & B (CSS Grid 1fr 1fr), gap 64px, height 710px */
 .Section.Section--section3 {
-  padding: 0 64px;
-  min-height: 710px;
-  height: auto;
-  box-sizing: border-box;
-  align-items: stretch;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 64px;
+  align-items: stretch;
+  padding: 120px 64px;
+  box-sizing: border-box;
+  background-color: rgba(246, 249, 252, 0.25);
 }
 
+/* Grid items: allow text to shrink so 1fr stays equal (override .Content flex-grow) */
 .Section--section3 .Content--section3,
-.Section--section3 .section3-visual {
-  flex: 1 1 0;
+.Section--section3 .section3-visual.mobile-placeholder {
   min-width: 0;
+  max-width: 100%;
 }
 
-/* Left column (A): same height as right */
+.Section--section3 .Content--section3 {
+  flex-grow: 0;
+  width: auto;
+}
+
+/* Left column (A) */
 .Section--section3 .Content--section3 {
   height: 710px;
   min-height: 710px;
   box-sizing: border-box;
   justify-content: center;
   padding: 80px 0 80px 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Right column (B): mobile frame placeholder — same 710px as left */
+/* Right column (B) */
 .Section--section3 .section3-visual.mobile-placeholder {
   height: 710px;
   min-height: 710px;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -340,13 +351,15 @@
     padding: 64px 24px;
     min-height: 0;
     height: auto;
-    flex-direction: column;
+    grid-template-columns: 1fr;
     align-items: stretch;
   }
 
   .Section--section3 .Content--section3,
-  .Section--section3 .section3-visual {
-    flex: 1 1 auto;
+  .Section--section3 .section3-visual.mobile-placeholder {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .Section--section3 .Content--section3 {
@@ -359,7 +372,6 @@
     height: auto;
     min-height: 0;
     padding: 48px 0;
-    flex-grow: 0;
   }
 
   .Section--section3 .Mobile-frame {
