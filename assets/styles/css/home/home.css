@@ -509,11 +509,18 @@ footer.site-footer {
 }
 
 .site-footer-heading {
-  margin: 0 0 16px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #1a1a1a;
-  letter-spacing: 0.02em;
+  width: 61px;
+  height: 16px;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #0a0a0a;
 }
 
 .site-footer-links {
@@ -522,19 +529,26 @@ footer.site-footer {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #0a0a0a;
 }
 
 .site-footer-links a {
-  font-size: 14px;
-  color: #5c5c5c;
+  color: #0a0a0a;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
-.site-footer-links a:hover {
+/* .site-footer-links a:hover {
   color: #635bff;
-}
+} */
 
 /* Bottom row: Links (left) + Contact (right), large space between */
 .site-footer-bottom {
