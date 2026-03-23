@@ -381,6 +381,7 @@
 }
 
 footer.site-footer {
+  position: relative;
   width: 100%;
   max-width: none;
   margin: 0;
@@ -390,8 +391,24 @@ footer.site-footer {
   font-family: Inter, sans-serif;
 }
 
+/* Decorative bg image on its own layer so opacity doesn’t fade footer text */
+footer.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("../../../img/FooterBackgroundLogo.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  opacity: 0.02;
+  pointer-events: none;
+}
+
 /* Content aligned to 1280px; footer background stays full width */
 .site-footer-inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
