@@ -143,6 +143,39 @@
   color: #7e858b;
 }
 
+/* section 01 */
+.Section1 {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 120px 64px;
+  box-sizing: border-box;
+  background-color: rgba(246, 249, 252, 0.25);
+}
+.section1-shift-visual {
+  width: 658px;
+  height: 585px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0 41.3px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.section1-shift-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  pointer-events: none;
+}
 
 /* section 9 */
 .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
