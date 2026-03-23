@@ -227,6 +227,60 @@
   margin-bottom: 0.5rem;
 }
 
+/* section 3 — How It Works: equal columns A & B, same 710px height, gap 64px */
+.Section.Section--section3 {
+  padding: 0 64px;
+  min-height: 710px;
+  height: auto;
+  box-sizing: border-box;
+  align-items: stretch;
+  gap: 64px;
+}
+
+.Section--section3 .Content--section3,
+.Section--section3 .section3-visual {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Left column (A): same height as right */
+.Section--section3 .Content--section3 {
+  height: 710px;
+  min-height: 710px;
+  box-sizing: border-box;
+  justify-content: center;
+  padding: 80px 0 80px 0;
+}
+
+/* Right column (B): mobile frame placeholder — same 710px as left */
+.Section--section3 .section3-visual.mobile-placeholder {
+  height: 710px;
+  min-height: 710px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 80px 0 80px 64px;
+  box-sizing: border-box;
+}
+
+.Section--section3 .Mobile-frame {
+  width: 288px;
+  height: 550px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 0;
+  transform: rotate(-180deg);
+  border-radius: 16px;
+  box-shadow: 0 9px 34px 6px rgba(106, 106, 106, 0.25);
+  background-color: #cdcdcd;
+}
+
 /* section 9 */
 .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
   height: 48px;
@@ -279,4 +333,37 @@
   color: #0a0a0a;
   padding-top: 24px;
   padding-bottom: 48px;
+}
+
+@media (max-width: 900px) {
+  .Section.Section--section3 {
+    padding: 64px 24px;
+    min-height: 0;
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .Section--section3 .Content--section3,
+  .Section--section3 .section3-visual {
+    flex: 1 1 auto;
+  }
+
+  .Section--section3 .Content--section3 {
+    height: auto;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .Section--section3 .section3-visual.mobile-placeholder {
+    height: auto;
+    min-height: 0;
+    padding: 48px 0;
+    flex-grow: 0;
+  }
+
+  .Section--section3 .Mobile-frame {
+    transform: none;
+    max-width: 100%;
+  }
 }
