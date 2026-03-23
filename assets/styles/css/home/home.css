@@ -1,3 +1,41 @@
+.Section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 64px;
+  padding: 120px 64px;
+  box-sizing: border-box;
+  background-color: rgba(246, 249, 252, 0.25);
+}
+
+.Content {
+  align-self: stretch;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+}
+.section-content {
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #0a0a0a;
+}
+
 .button-wrapper {
   /* width: 362px; */
   /* height: 40px; */
@@ -71,33 +109,7 @@
   background-color: #d9d9d9;
 }
 
-/* section 9 */
-.Section-9 {
-  width: 100%;
-  max-width: 1280px;
-  height: 641px;
-  margin: 0 auto;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 64px;
-  padding: 120px 64px;
-  box-sizing: border-box;
-  background-color: rgba(246, 249, 252, 0.25);
-}
-.Content-9 {
-  align-self: stretch;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0;
-}
-
-.Developers {
+.section-label {
   height: 16px;
   align-self: stretch;
   flex-grow: 0;
@@ -112,8 +124,8 @@
   color: #533afd;
 }
 
-.Start-building-with-trust-in-place {
-  height: 96px;
+.section-title {
+  /* height: 96px; */
   align-self: stretch;
   flex-grow: 0;
   font-family: Inter;
@@ -127,9 +139,12 @@
   color: #0a0a0a;
   padding: 24px 0px;
 }
-.Start-building-with-trust-in-place .text-style-1 {
+.section-title .text-style-1 {
   color: #7e858b;
 }
+
+
+/* section 9 */
 .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
   height: 48px;
   align-self: stretch;
@@ -145,33 +160,7 @@
   color: #0a0a0a;
   padding-bottom: 48px;
 }
-
 /* section 10 */
-.Section-10 {
-  width: 100%;
-  max-width: 1280px;
-  height: 641px;
-  margin: 0 auto;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 64px;
-  padding: 120px 64px;
-  box-sizing: border-box;
-  background-color: rgba(246, 249, 252, 0.25);
-}
-.Content-10 {
-  align-self: stretch;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0;
-}
-
 .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
   height: 240px;
   align-self: stretch;
