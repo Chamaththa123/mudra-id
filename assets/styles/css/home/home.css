@@ -164,7 +164,7 @@ body {
   min-height: 798px;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: #f6f9fc;
+  /* background-color: #c6c6c6; */
 }
 
 .site-hero-bg {
@@ -191,7 +191,7 @@ body {
 
 .site-hero-bg-svg--top {
   z-index: 1;
-  transform: translateX(-6%);
+  transform: translateX(-7%);
 }
 
 @media (min-width: 1401px) {
