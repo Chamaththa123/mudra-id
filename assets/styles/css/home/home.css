@@ -185,6 +185,15 @@ body {
   object-fit: fill;
 }
 
+.site-hero-bg-svg--bottom {
+  z-index: 0;
+}
+
+.site-hero-bg-svg--top {
+  z-index: 1;
+  transform: translateX(-6%);
+}
+
 @media (min-width: 1401px) {
   .site-hero-bg-svg {
     width: 150%;
