@@ -362,10 +362,10 @@ body {
 
 .site-hero-title {
   margin: 0;
+  padding: 0;
   width: 544px;
   max-width: 100%;
   flex-grow: 0;
-  mix-blend-mode: color-burn;
   font-family: Inter;
   font-size: 64px;
   font-weight: 600;
@@ -374,16 +374,20 @@ body {
   line-height: 1.05;
   letter-spacing: -0.25px;
   text-align: left;
-  color: #565656;
-  padding: 24px 0;
+  color: #1a1a1a;
 }
 
+/* Hero title: accent (orange-red) + soft mid + strong end */
 .site-hero-title-accent {
-  color: #8b2332;
+  color: #c94d2a;
 }
 
-.site-hero-title-rest {
-  color: #0a0a0a;
+.site-hero-title-mid {
+  color: rgba(10, 10, 10, 0.68);
+}
+
+.site-hero-title-end {
+  color: #1a1a1a;
 }
 
 .site-hero-desc {
