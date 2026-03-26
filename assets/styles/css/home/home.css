@@ -543,6 +543,64 @@ body {
   pointer-events: none;
 }
 
+/* Section 2 Feature: Section 3 A ↔ B slide animation (see home.js #home-section3-slides) */
+.section-feature-visual .home-section3-anim-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 628px;
+  height: 285px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.section-feature-visual .home-section3-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+}
+
+.section-feature-visual .home-section3-slide .home-section3-anim-object {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.section-feature-visual .home-section3-slides.state-a .home-section3-slide-a {
+  transform: translateX(0);
+}
+
+.section-feature-visual .home-section3-slides.state-a .home-section3-slide-b {
+  transform: translateX(-100%);
+}
+
+.section-feature-visual .home-section3-slides.state-b .home-section3-slide-a {
+  transform: translateX(100%);
+}
+
+.section-feature-visual .home-section3-slides.state-b .home-section3-slide-b {
+  transform: translateX(0);
+}
+
+.section-feature-visual .home-section3-slides.state-b.state-a-next .home-section3-slide-a {
+  transform: translateX(-100%);
+  transition: none;
+}
+
+.section-feature-visual .home-section3-slides.state-a.state-b-next .home-section3-slide-b {
+  transform: translateX(-100%);
+  transition: none;
+}
+
 .section-list {
   margin: 0;
   padding: 24px 0 0 30px;
