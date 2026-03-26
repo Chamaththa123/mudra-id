@@ -1,6 +1,13 @@
 /* Remove default margin/padding so hero and sections sit flush with the viewport */
 html {
   scroll-padding-top: 88px;
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px),
+    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px),
+    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px);
+  background-size: 1px 100%, 1px 100%, 1px 100%;
+  background-position: calc(50% - 320px) 0, 50% 0, calc(50% + 320px) 0;
+  background-repeat: no-repeat;
 }
 
 html,
@@ -512,6 +519,9 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: #ffffff;
 }
 
 .section1-shift-svg {
@@ -533,6 +543,9 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: #ffffff;
 }
 
 .section-feature-svg {
@@ -551,7 +564,7 @@ body {
   height: 285px;
   overflow: hidden;
   box-sizing: border-box;
-  background: transparent;
+  background-color: #ffffff;
 }
 
 .section-feature-visual .home-section3-slide {
@@ -609,7 +622,7 @@ body {
   height: 285px;
   overflow: hidden;
   box-sizing: border-box;
-  background: transparent;
+  background-color: #ffffff;
 }
 
 .section-feature-visual .home-section6-slide {
