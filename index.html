@@ -17,6 +17,26 @@
 </head>
 
 <body >
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="/" class="site-header-logo" aria-label="MudraID home">
+                <img src="assets/img/HeaderLogo.png" alt="" class="site-header-logo-img" width="40" height="40"
+                    decoding="async">
+                <span class="site-header-logo-text">MudraID</span>
+            </a>
+            <nav class="site-header-nav" aria-label="Main navigation">
+                <a href="#products" class="site-header-link">Products <span class="site-header-link-arrow"
+                        aria-hidden="true">→</span></a>
+                <a href="#solutions" class="site-header-link">Solutions <span class="site-header-link-arrow"
+                        aria-hidden="true">→</span></a>
+                <a href="#signin" class="site-header-link">Sign in <span class="site-header-link-arrow"
+                        aria-hidden="true">→</span></a>
+                <a href="#contact" class="site-header-cta">Contact <span class="site-header-link-arrow"
+                        aria-hidden="true">→</span></a>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero: background animation (SVGator) -->
     <section class="site-hero" aria-label="Hero">
         <div class="site-hero-bg" aria-hidden="true">
@@ -24,6 +44,10 @@
                 class="site-hero-bg-svg site-hero-bg-svg--bottom" width="1920" height="1080" aria-hidden="true"></object>
             <object data="assets/animations/Hero%20top.svg" type="image/svg+xml"
                 class="site-hero-bg-svg site-hero-bg-svg--top" width="1920" height="1080" aria-hidden="true"></object>
+        </div>
+        <div class="site-hero-dashboard">
+            <img src="assets/img/heroDashboardImage.png" alt="Product dashboard preview" class="site-hero-dashboard-img"
+                width="640" height="400" loading="eager" decoding="async">
         </div>
     </section>
 
@@ -53,7 +77,7 @@
     </div>
 
     <!-- section 2: Feature — Section 3 A / Desktop animation -->
-    <div class="Section">
+    <div class="Section" id="products">
         <div class="Content">
             <span class="section-label">Feature</span>
             <span class="section-title">
@@ -96,7 +120,7 @@
     </div>
 
     <!-- section 4-->
-    <div class="Section Section--section3">
+    <div class="Section Section--section3" id="solutions">
         <div class="Content Content--section3">
             <span class="section-label">Built for Both Sides</span>
             <span class="section-title">
@@ -375,7 +399,7 @@
                         <li><a href="#">Solutions</a></li>
                         <li><a href="#">Pricing</a></li>
                         <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Sign in</a></li>
+                        <li><a href="#" id="signin">Sign in</a></li>
                     </ul>
                 </div>
                 <div class="site-footer-bottom-col site-footer-contact-col">

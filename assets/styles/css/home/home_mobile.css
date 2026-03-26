@@ -210,6 +210,33 @@
     text-align: left;
     color: #0a0a0a;
   }
+
+  .site-hero-dashboard {
+    right: 16px;
+    max-width: min(360px, 72vw);
+  }
+
+  .site-header-inner {
+    padding: 12px 24px;
+  }
+
+  .site-header-nav {
+    gap: 6px 12px;
+    justify-content: flex-end;
+  }
+
+  .site-header-link,
+  .site-header-cta {
+    font-size: 14px;
+  }
+
+  .site-header-cta {
+    padding: 8px 16px;
+  }
+
+  .site-header-logo-text {
+    font-size: 18px;
+  }
 }
 
 /* Very small mobile (e.g. 320px–380px) – tighter spacing */
