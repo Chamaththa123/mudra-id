@@ -309,6 +309,21 @@ body {
   /* background-color: #c6c6c6; */
 }
 
+.site-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px),
+    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px),
+    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px);
+  background-size: 1px 100%, 1px 100%, 1px 100%;
+  background-position: calc(50% - 320px) 0, 50% 0, calc(50% + 320px) 0;
+  background-repeat: no-repeat;
+}
+
 .site-hero-bg {
   position: absolute;
   inset: 0;
