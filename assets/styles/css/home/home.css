@@ -550,6 +550,8 @@ body {
     box-shadow:
       0 4px 6px rgba(10, 10, 10, 0.04),
       0 12px 40px rgba(10, 10, 10, 0.12);
+    transform: scaleY(1.06);
+    transform-origin: center center;
   }
 
   .site-hero-dashboard {
