@@ -334,12 +334,12 @@ body {
 .site-hero-bg-svg {
   position: absolute;
   inset: 0;
-  width: 115%;
-  height: 100%;
+  width: 100%;
+  height: 125%;
   max-width: none;
   display: block;
   /* Stretch SVG to full hero box so stripes/gradient span the full viewport width */
-  object-fit: fill;
+  object-fit: contain;
 }
 
 .site-hero-bg-svg--bottom {
@@ -352,12 +352,9 @@ body {
 }
 
 @media (min-width: 1401px) {
-  .site-hero-bg-svg {
-    width: 140%;
-  }
   .site-hero-bg-svg--top {
     z-index: 1;
-    transform: translateX(-8%);
+    transform: translateX(8%);
   }
 }
 
@@ -506,6 +503,58 @@ body {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Wide screens (>1401px): two-column hero — full dashboard PNG in flow (not absolute) */
+.site-hero-dashboard-wide {
+  display: none;
+}
+
+@media (min-width: 1402px) {
+  .site-hero-main {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1280px;
+    margin: 88px auto 0;
+    padding: 83px 64px;
+  }
+
+  .site-hero-main .site-hero-content {
+    margin-top: 0;
+    padding: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .site-hero-dashboard-wide {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
+  .site-hero-dashboard-wide-img {
+    display: block;
+    max-width: min(620px, 42vw);
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow:
+      0 4px 6px rgba(10, 10, 10, 0.04),
+      0 12px 40px rgba(10, 10, 10, 0.12);
+  }
+
+  .site-hero-dashboard {
+    display: none;
+  }
 }
 
 /* section 01 */
