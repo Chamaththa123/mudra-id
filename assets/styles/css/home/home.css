@@ -398,7 +398,6 @@ body {
   width: 544px;
   max-width: 100%;
   flex-grow: 0;
-  mix-blend-mode: color-burn;
   font-family: Inter;
   font-size: 64px;
   font-weight: 600;
@@ -411,10 +410,39 @@ body {
   padding: 24px 0;
 }
 
-.site-hero-title-accent {
-  color: #c94d2a;
+.site-hero-title-line {
+  position: relative;
+  display: block;
+  width: max-content;
+  max-width: 100%;
 }
 
+.site-hero-title-layer {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Two-layer stack only: bottom overlay + top color-burn */
+.site-hero-title-layer--bottom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  color: #0a0a0a;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.site-hero-title-layer--top {
+  position: relative;
+  z-index: 2;
+  color: #202020;
+  mix-blend-mode: color-burn;
+  opacity: 0.62;
+}
+
+/* Header wordmark still uses this class */
 .site-hero-title-rest {
   color: rgba(10, 10, 10, 0.68);
 }
