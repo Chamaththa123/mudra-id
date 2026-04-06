@@ -335,7 +335,7 @@ body {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 125%;
+  height: 100%;
   max-width: none;
   display: block;
   /* Stretch SVG to full hero box so stripes/gradient span the full viewport width */
