@@ -349,7 +349,7 @@ body {
 .site-hero-bg-svg--top {
   z-index: 1;
   transform: translateX(-2%);
-  /* filter: blur(1.4px); */
+  filter: blur(1.4px);
 }
 
 @media (min-width: 1401px) {
