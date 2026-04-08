@@ -7,10 +7,22 @@
 @property --hero-c2 {
   syntax: '<color>';
   inherits: false;
-  initial-value: #f35190;
+  initial-value: #f15ba3;
 }
 
 @property --hero-c3 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f35190;
+}
+
+@property --hero-c4 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f1b323;
+}
+
+@property --hero-c5 {
   syntax: '<color>';
   inherits: false;
   initial-value: #00c8ff;
@@ -359,7 +371,7 @@ body {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 125%;
+  height: 135%;
   max-width: none;
   display: block;
   /* Stretch SVG to full hero box so stripes/gradient span the full viewport width */
@@ -432,10 +444,22 @@ body {
   letter-spacing: -0.25px;
   text-align: left;
   padding: 24px 0;
-  background: linear-gradient(var(--hero-angle), var(--hero-c1), var(--hero-c2), var(--hero-c3));
+  background:
+    linear-gradient(
+      var(--hero-angle),
+      var(--hero-c1) 0%,
+      var(--hero-c2) 25%,
+      var(--hero-c3) 50%,
+      var(--hero-c4) 75%,
+      var(--hero-c5) 100%
+    ),
+    linear-gradient(#555, #555);
+  background-attachment: fixed, fixed;
+  background-blend-mode: multiply;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  opacity: 0.76;
   animation: hero-text-gradient 30s ease infinite;
 }
 
@@ -448,32 +472,58 @@ body {
 @keyframes hero-text-gradient {
   0% {
     --hero-c1: #f1b323;
-    --hero-c2: #f35190;
-    --hero-c3: #00c8ff;
+    --hero-c2: #f15ba3;
+    --hero-c3: #f35190;
+    --hero-c4: #f1b323;
+    --hero-c5: #00c8ff;
     --hero-angle: 90deg;
+  }
+  16.67% {
+    --hero-c1: #f1a033;
+    --hero-c2: #e04d93;
+    --hero-c3: #a855e8;
+    --hero-c4: #f15ba3;
+    --hero-c5: #0ab4e8;
+    --hero-angle: 112deg;
   }
   33.33% {
     --hero-c1: #f15ba3;
-    --hero-c2: #5d51f3;
-    --hero-c3: #11bbe9;
+    --hero-c2: #f1b323;
+    --hero-c3: #5d51f3;
+    --hero-c4: #f15ba3;
+    --hero-c5: #11bbe9;
     --hero-angle: 135deg;
   }
   50% {
     --hero-c1: #f15ba3;
-    --hero-c2: #51e6f3;
-    --hero-c3: #11bbe9;
+    --hero-c2: #f1b323;
+    --hero-c3: #51e6f3;
+    --hero-c4: #f15ba3;
+    --hero-c5: #11bbe9;
     --hero-angle: 157deg;
   }
   66.67% {
     --hero-c1: #f15ba3;
-    --hero-c2: #5d51f3;
-    --hero-c3: #11bbe9;
+    --hero-c2: #e0a030;
+    --hero-c3: #5d51f3;
+    --hero-c4: #f1b323;
+    --hero-c5: #11bbe9;
     --hero-angle: 180deg;
+  }
+  83.33% {
+    --hero-c1: #e8a02a;
+    --hero-c2: #f15ba3;
+    --hero-c3: #c44ddb;
+    --hero-c4: #f1b323;
+    --hero-c5: #05d4ff;
+    --hero-angle: 135deg;
   }
   100% {
     --hero-c1: #f1b323;
-    --hero-c2: #f35190;
-    --hero-c3: #00c8ff;
+    --hero-c2: #f15ba3;
+    --hero-c3: #f35190;
+    --hero-c4: #f1b323;
+    --hero-c5: #00c8ff;
     --hero-angle: 90deg;
   }
 }
