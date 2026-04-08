@@ -1,3 +1,27 @@
+@property --hero-c1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f1b323;
+}
+
+@property --hero-c2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f35190;
+}
+
+@property --hero-c3 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #00c8ff;
+}
+
+@property --hero-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 90deg;
+}
+
 /* Remove default margin/padding so hero and sections sit flush with the viewport */
 html {
   scroll-padding-top: 88px;
@@ -407,40 +431,51 @@ body {
   line-height: 1.05;
   letter-spacing: -0.25px;
   text-align: left;
-  color: #1a1a1a;
   padding: 24px 0;
+  background: linear-gradient(var(--hero-angle), var(--hero-c1), var(--hero-c2), var(--hero-c3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hero-text-gradient 30s ease infinite;
 }
 
 .site-hero-title-line {
-  position: relative;
   display: block;
   width: max-content;
   max-width: 100%;
 }
 
-.site-hero-title-layer {
-  display: block;
-  white-space: nowrap;
-}
-
-/* Two-layer stack only: bottom overlay + top color-burn */
-.site-hero-title-layer--bottom {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  color: #0a0a0a;
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  opacity: 0.1;
-}
-
-.site-hero-title-layer--top {
-  position: relative;
-  z-index: 2;
-  color: #202020;
-  mix-blend-mode: color-burn;
-  opacity: 0.62;
+@keyframes hero-text-gradient {
+  0% {
+    --hero-c1: #f1b323;
+    --hero-c2: #f35190;
+    --hero-c3: #00c8ff;
+    --hero-angle: 90deg;
+  }
+  33.33% {
+    --hero-c1: #f15ba3;
+    --hero-c2: #5d51f3;
+    --hero-c3: #11bbe9;
+    --hero-angle: 135deg;
+  }
+  50% {
+    --hero-c1: #f15ba3;
+    --hero-c2: #51e6f3;
+    --hero-c3: #11bbe9;
+    --hero-angle: 157deg;
+  }
+  66.67% {
+    --hero-c1: #f15ba3;
+    --hero-c2: #5d51f3;
+    --hero-c3: #11bbe9;
+    --hero-angle: 180deg;
+  }
+  100% {
+    --hero-c1: #f1b323;
+    --hero-c2: #f35190;
+    --hero-c3: #00c8ff;
+    --hero-angle: 90deg;
+  }
 }
 
 /* Header wordmark still uses this class */
