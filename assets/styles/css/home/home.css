@@ -380,6 +380,7 @@ body {
 
 .site-hero-bg-svg--bottom {
   z-index: 0;
+  margin-top:-100px;
 }
 
 .site-hero-bg-svg--top {
@@ -433,7 +434,7 @@ body {
 .site-hero-title {
   margin: 0;
   width: 544px;
-  max-width: 100%;
+  /* max-width: 100%; */
   flex-grow: 0;
   font-family: Inter;
   font-size: 64px;
@@ -459,7 +460,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  opacity: 0.76;
+  opacity: 0.75;
   animation: hero-text-gradient 30s ease infinite;
 }
 
