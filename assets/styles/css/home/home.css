@@ -195,7 +195,6 @@ body {
   gap: 64px;
   padding: 120px 64px;
   box-sizing: border-box;
-  background-color: rgba(246, 249, 252, 0.25);
 }
 
 .Content {
@@ -460,7 +459,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  opacity: 0.75;
+  opacity: 0.85;
   animation: hero-text-gradient 30s ease infinite;
 }
 
@@ -625,7 +624,7 @@ body {
   display: none;
 }
 
-@media (min-width: 1402px) {
+@media (min-width: 1550px) {
   .site-hero-main {
     position: relative;
     z-index: 3;
@@ -686,7 +685,6 @@ body {
   align-items: center;
   padding: 64px 64px;
   box-sizing: border-box;
-  background-color: rgba(246, 249, 252, 0.25);
 }
 
 .section1-shift-visual {
@@ -885,7 +883,6 @@ body {
   align-items: stretch;
   padding: 120px 64px;
   box-sizing: border-box;
-  background-color: rgba(246, 249, 252, 0.25);
 }
 
 /* Grid items: allow text to shrink so 1fr stays equal (override .Content flex-grow) */
