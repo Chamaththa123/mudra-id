@@ -459,8 +459,8 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  opacity: 0.85;
-  animation: hero-text-gradient 30s ease infinite;
+  opacity: 0.9;
+  animation: hero-text-gradient 35s ease infinite;
 }
 
 .site-hero-title-line {
