@@ -341,7 +341,8 @@ body {
   min-height: 798px;
   box-sizing: border-box;
   overflow: hidden;
-  /* background-color: #c6c6c6; */
+  /* Placeholder until deferred SVGs attach (avoids white flash) */
+  background: linear-gradient(180deg, #0a0a12 0%, #12121c 45%, #16161f 100%);
 }
 
 .site-hero::before {
@@ -364,6 +365,7 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  isolation: isolate;
 }
 
 .site-hero-bg-svg {
@@ -375,6 +377,8 @@ body {
   display: block;
   /* Stretch SVG to full hero box so stripes/gradient span the full viewport width */
   object-fit: contain;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .site-hero-bg-svg--bottom {
@@ -384,14 +388,16 @@ body {
 
 .site-hero-bg-svg--top {
   z-index: 1;
-  transform: translateX(-2%);
-  filter: blur(1.4px);
+  /* translateX for layout; do NOT use filter: blur here — it repaints the full
+     animated layer every frame with SVGator and will freeze/jank the hero. */
+  transform: translate3d(-2%, 0, 0);
+  opacity: 0.92;
 }
 
 @media (min-width: 1401px) {
   .site-hero-bg-svg--top {
     z-index: 1;
-    transform: translateX(8%);
+    transform: translate3d(8%, 0, 0);
   }
 }
 
@@ -887,7 +893,7 @@ body {
 
 /* Grid items: allow text to shrink so 1fr stays equal (override .Content flex-grow) */
 .Section--section3 .Content--section3,
-.Section--section3 .section3-visual.mobile-placeholder {
+.Section--section3 > .Placeholder {
   min-width: 0;
   max-width: 100%;
 }
@@ -899,8 +905,6 @@ body {
 
 /* Left column (A) */
 .Section--section3 .Content--section3 {
-  height: 710px;
-  min-height: 710px;
   box-sizing: border-box;
   justify-content: center;
   padding: 80px 0 80px 0;
@@ -908,32 +912,13 @@ body {
   flex-direction: column;
 }
 
-/* Right column (B) */
-.Section--section3 .section3-visual.mobile-placeholder {
-  height: 710px;
-  min-height: 710px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-  padding: 80px 0 80px 64px;
-  box-sizing: border-box;
-}
-
-.Section--section3 .Mobile-frame {
-  width: 288px;
-  height: 550px;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  padding: 0;
-  transform: rotate(-180deg);
-  border-radius: 16px;
-  box-shadow: 0 9px 34px 6px rgba(106, 106, 106, 0.25);
-  background-color: #cdcdcd;
+/* Right-column gray block: same box as .Section + .Placeholder (e.g. Developers), not stretched to row height */
+@media (min-width: 1025px) {
+  .Section--section3 > .Placeholder {
+    min-width: 0;
+    align-self: center;
+    justify-self: end;
+  }
 }
 
 /* section 4 — full-width row under main 2 cols; inner 2 equal columns, gap 64px */

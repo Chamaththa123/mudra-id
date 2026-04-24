@@ -98,6 +98,12 @@
     aspect-ratio: unset;
   }
 
+  .Section--section3 > .Placeholder {
+    min-width: 0;
+    align-self: center;
+    justify-self: end;
+  }
+
   /* ——— Section 9 (Developers) ——— */
   .Section-9 {
     width: 100%;

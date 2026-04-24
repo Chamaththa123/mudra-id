@@ -42,10 +42,13 @@
     <!-- Hero: background animation (SVGator) -->
     <section class="site-hero" aria-label="Hero">
         <div class="site-hero-bg" aria-hidden="true">
-            <object data="assets/animations/Hero%20Bottom.svg" type="image/svg+xml"
-                class="site-hero-bg-svg site-hero-bg-svg--bottom"  aria-hidden="true"></object>
-            <object data="assets/animations/Hero%20top.svg" type="image/svg+xml"
-                class="site-hero-bg-svg site-hero-bg-svg--top" width="1920" height="1080" aria-hidden="true"></object>
+            <!-- Defer data= until after first paint (see home.js) — eager <object> + SVGator runs 2x heavy JS in hero -->
+            <object type="image/svg+xml"
+                class="site-hero-bg-svg site-hero-bg-svg--bottom home-hero-bg-deferred"
+                data-src="assets/animations/Hero%20Bottom.svg" width="1920" height="1080" aria-hidden="true"></object>
+            <object type="image/svg+xml"
+                class="site-hero-bg-svg site-hero-bg-svg--top home-hero-bg-deferred"
+                data-src="assets/animations/Hero%20top.svg" width="1920" height="1080" aria-hidden="true"></object>
         </div>
         <div class="site-hero-main">
             <div class="site-hero-content">
@@ -150,13 +153,11 @@
                 the agent, delegated authorization from the human/org, and per-request proof at runtime.
             </span>
         </div>
-        <div class="section3-visual mobile-placeholder" aria-hidden="true">
-            <div class="Mobile-frame"></div>
-        </div>
+        <div class="Placeholder" aria-hidden="true"></div>
     </div>
 
     <!-- section 4-->
-    <div class="Section Section--section3" id="solutions">
+     <div class="Section Section--section3">
         <div class="Content Content--section3">
             <span class="section-label">Built for Both Sides</span>
             <span class="section-title">
@@ -172,10 +173,10 @@
                 API-driven platforms can validate identity directly.<br />
                 Existing gateways and infrastructure remain in control.
             </span>
+            
+
         </div>
-        <div class="section3-visual mobile-placeholder" aria-hidden="true">
-            <div class="Mobile-frame"></div>
-        </div>
+        <div class="Placeholder"></div>
         <div class="section4-sub-section">
             <div class="section4-sub-col">
                 <div class="section4-sub-label">For AI Agent Builders</div>
