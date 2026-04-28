@@ -299,6 +299,20 @@ body {
   background-color: #d9d9d9;
 }
 
+/* Governance, Developers, closing sections — fixed placeholder / image column */
+.Section.Section--governance > .Placeholder,
+.Section.Section--developers > .Placeholder,
+.Section.Section--closing > .Placeholder {
+  width: 320px;
+  max-width: min(320px, 100%);
+  min-width: 0;
+  height: 340px;
+  min-height: 340px;
+  aspect-ratio: unset;
+  flex-shrink: 0;
+  align-self: center;
+}
+
 .section-label {
   height: 16px;
   align-self: stretch;
@@ -721,6 +735,11 @@ body {
   max-width: 100%;
   display: block;
   pointer-events: none;
+}
+
+.section1-shift-svg--tablet,
+.section1-shift-svg--mobile {
+  display: none;
 }
 
 /* section 2 — Feature / Section 3 A (Desktop) */

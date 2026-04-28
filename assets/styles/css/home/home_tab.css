@@ -1,6 +1,128 @@
 /* ===== Home – Tablet view (matches design: 2 columns, stacked equal-width buttons) ===== */
 /* Only between mobile and desktop — does not override mobile (≤576px) */
+/* Selectors follow home.css: Section modifiers (e.g. Section--section3), no ID-based layout rules. */
 
 @media (min-width: 577px) and (max-width: 1024px) {
-  
+  /* Section 1 — The Shift: copy full width on top, Story tablet SVG below (Figma) */
+  .Section1 {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 48px;
+    padding: 96px 64px;
+  }
+
+  .Section1 .Content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .Section1 .section-title {
+    font-size: 40px;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    padding: 16px 0 20px;
+  }
+
+  .section1-shift-visual {
+    width: 100%;
+    max-width: min(658px, 100%);
+    height: auto;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 0;
+    align-self: center;
+  }
+
+  .section1-shift-svg--desktop {
+    display: none;
+  }
+
+  .section1-shift-svg--tablet {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 658 / 585;
+    object-fit: contain;
+  }
+
+  .section1-shift-svg--mobile {
+    display: none;
+  }
+
+  /* Feature, Works Everywhere, Trust Without Friction — two columns; scaled diagrams */
+  .Section.Section--feature,
+  .Section.Section--works,
+  .Section.Section--trust {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 96px 48px;
+  }
+
+  .Section.Section--feature .Content,
+  .Section.Section--works .Content,
+  .Section.Section--trust .Content {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: min(520px, 52%);
+  }
+
+  .Section.Section--feature .section-title,
+  .Section.Section--works .section-title,
+  .Section.Section--trust .section-title {
+    font-size: 36px;
+    line-height: 1.08;
+    letter-spacing: -0.4px;
+    padding: 16px 0;
+  }
+
+  .Section.Section--feature .section-feature-visual,
+  .Section.Section--works .section-feature-visual,
+  .Section.Section--trust .section-feature-visual {
+    width: auto;
+    height: auto;
+    flex: 0 1 480px;
+    max-width: min(480px, 46%);
+    align-self: center;
+  }
+
+  /* Feature — Section 3 A ↔ B */
+  .Section.Section--feature .section-feature-visual .home-section3-anim-wrap {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 628 / 285;
+    min-height: 0;
+  }
+
+  .Section.Section--feature .section-feature-visual .home-section3-slide .home-section3-anim-object {
+    object-fit: contain;
+  }
+
+  /* Works Everywhere — single Section 5 SVG */
+  .Section.Section--works > .section-feature-visual .section-feature-svg {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 628 / 285;
+    object-fit: contain;
+  }
+
+  /* Trust Without Friction — Section 6 A ↔ B */
+  .Section.Section--trust .section-feature-visual .home-section6-anim-wrap {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 628 / 285;
+    min-height: 0;
+  }
+
+  .Section.Section--trust .section-feature-visual .home-section6-slide .home-section6-anim-object {
+    object-fit: contain;
+  }
 }
