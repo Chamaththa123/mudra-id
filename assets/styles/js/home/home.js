@@ -98,39 +98,6 @@
   window.addEventListener('pageshow', reviveIfNeeded);
 
   /**
-   * Hero background SVGs: do not set object `data` in HTML. SVGator runs large JS per
-   * <object>; loading immediately competes with first paint and can feel "stuck".
-   * Defer until after a frame + idle, using the same paths as before.
-   */
-  (function loadHeroBackgroundSvgsDeferred() {
-    var objects = document.querySelectorAll('object.home-hero-bg-deferred');
-    if (!objects.length) return;
-    var list = Array.prototype.slice.call(objects);
-    function attach() {
-      list.forEach(function (el) {
-        var src = el.getAttribute('data-src');
-        if (src) el.setAttribute('data', src);
-      });
-    }
-    function schedule() {
-      if (window.requestIdleCallback) {
-        window.requestIdleCallback(
-          function () {
-            requestAnimationFrame(attach);
-          },
-          { timeout: 1800 }
-        );
-      } else {
-        requestAnimationFrame(function () {
-          setTimeout(attach, 0);
-        });
-      }
-    }
-    // Deferred script: DOM is ready; do not wait for `load` (all images) or hero SVGs start too late.
-    schedule();
-  })();
-
-  /**
    * Mobile nav modal: open/close on menu button and close button, lock body scroll when open.
    */
   (function mobileNavModal() {

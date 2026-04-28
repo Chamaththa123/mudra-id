@@ -342,10 +342,10 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   /* Placeholder until deferred SVGs attach (avoids white flash) */
-  background: linear-gradient(180deg, #0a0a12 0%, #12121c 45%, #16161f 100%);
+  /* background: linear-gradient(180deg, #0a0a12 0%, #12121c 45%, #16161f 100%); */
 }
 
-.site-hero::before {
+/* .site-hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -358,7 +358,7 @@ body {
   background-size: 1px 100%, 1px 100%, 1px 100%;
   background-position: calc(50% - 320px) 0, 50% 0, calc(50% + 320px) 0;
   background-repeat: no-repeat;
-}
+} */
 
 .site-hero-bg {
   position: absolute;
@@ -366,6 +366,9 @@ body {
   z-index: 0;
   pointer-events: none;
   isolation: isolate;
+  /* Contain paints inside the hero background so the two SVGator animations
+     can't invalidate the whole hero/page on every frame. */
+  contain: layout paint style;
 }
 
 .site-hero-bg-svg {
@@ -379,6 +382,10 @@ body {
   object-fit: contain;
   transform: translateZ(0);
   backface-visibility: hidden;
+  /* Each <object> runs its own SVGator JS; isolate its repaints to its own
+     compositor layer so one animation can't jank the other or the hero UI. */
+  contain: layout paint style;
+  will-change: transform, opacity;
 }
 
 .site-hero-bg-svg--bottom {
@@ -396,7 +403,6 @@ body {
 
 @media (min-width: 1401px) {
   .site-hero-bg-svg--top {
-    z-index: 1;
     transform: translate3d(8%, 0, 0);
   }
 }
