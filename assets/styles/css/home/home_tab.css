@@ -19,13 +19,6 @@
     max-width: 100%;
   }
 
-  .Section1 .section-title {
-    font-size: 40px;
-    line-height: 1.05;
-    letter-spacing: -0.5px;
-    padding: 16px 0 20px;
-  }
-
   .section1-shift-visual {
     width: 100%;
     max-width: min(658px, 100%);
@@ -60,8 +53,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
-    padding: 96px 48px;
+    gap: 32px;
+    padding: 96px 64px;
   }
 
   .Section.Section--feature .Content,
@@ -70,15 +63,6 @@
     flex: 1 1 0;
     min-width: 0;
     max-width: min(520px, 52%);
-  }
-
-  .Section.Section--feature .section-title,
-  .Section.Section--works .section-title,
-  .Section.Section--trust .section-title {
-    font-size: 36px;
-    line-height: 1.08;
-    letter-spacing: -0.4px;
-    padding: 16px 0;
   }
 
   .Section.Section--feature .section-feature-visual,
