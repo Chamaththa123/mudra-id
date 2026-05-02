@@ -1,6 +1,287 @@
 /* ===== Home – Tablet view (matches design: 2 columns, stacked equal-width buttons) ===== */
 /* Only between mobile and desktop — does not override mobile (≤576px) */
+/* Selectors follow home.css: Section modifiers (e.g. Section--section3), no ID-based layout rules. */
 
 @media (min-width: 577px) and (max-width: 1024px) {
-  
+  .site-header {
+    height: 76px;
+  }
+
+  .site-hero {
+    height: 754px;
+    min-height: 754px;
+  }
+
+  /* Section 1 — The Shift: copy full width on top, Story tablet SVG below (Figma) */
+  .Section1 {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 48px;
+    padding: 96px 64px;
+  }
+
+  .Section1 .Content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .Section1 .section-title {
+    font-size: 40px;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    padding: 16px 0 20px;
+  }
+
+  .section1-shift-visual {
+    width: 100%;
+    max-width: min(658px, 100%);
+    height: auto;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 0;
+    align-self: center;
+  }
+
+  .section1-shift-svg--desktop {
+    display: none;
+  }
+
+  .section1-shift-svg--tablet {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 658 / 585;
+    object-fit: contain;
+  }
+
+  .section1-shift-svg--mobile {
+    display: none;
+  }
+
+  /* Feature, Works Everywhere, Trust Without Friction — two columns; scaled diagrams */
+  .Section.Section--feature,
+  .Section.Section--works,
+  .Section.Section--trust {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 96px 48px;
+  }
+
+  .Section.Section--feature .Content,
+  .Section.Section--works .Content,
+  .Section.Section--trust .Content {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: min(520px, 52%);
+  }
+
+  .Section.Section--feature .section-title,
+  .Section.Section--works .section-title,
+  .Section.Section--trust .section-title {
+    font-size: 36px;
+    line-height: 1.08;
+    letter-spacing: -0.4px;
+    padding: 16px 0;
+  }
+
+  .Section.Section--feature .section-feature-visual,
+  .Section.Section--works .section-feature-visual,
+  .Section.Section--trust .section-feature-visual {
+    width: auto;
+    height: auto;
+    flex: 0 1 480px;
+    max-width: min(480px, 46%);
+    align-self: center;
+  }
+
+  /* Feature — Section 3 A ↔ B */
+  .Section.Section--feature .section-feature-visual .home-section3-anim-wrap {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 628 / 285;
+    min-height: 0;
+  }
+
+  .Section.Section--feature .section-feature-visual .home-section3-slide .home-section3-anim-object {
+    object-fit: contain;
+  }
+
+  /* Works Everywhere — single Section 5 SVG */
+  .Section.Section--works > .section-feature-visual .section-feature-svg {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 628 / 285;
+    object-fit: contain;
+  }
+
+  /* Trust Without Friction — Section 6 A ↔ B */
+  .Section.Section--trust .section-feature-visual .home-section6-anim-wrap {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 628 / 285;
+    min-height: 0;
+  }
+
+  .Section.Section--trust .section-feature-visual .home-section6-slide .home-section6-anim-object {
+    object-fit: contain;
+  }
+
+  /* How It Works + Built for Both Sides — grid column for fixed gray block (same as Developers) */
+  .Section.Section--section3 {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 40px;
+    padding: 96px 48px;
+    align-items: center;
+  }
+
+  /* Governance, Developers, closing — same spacing & copy column as Feature rows (tablet) */
+  .Section.Section--governance,
+  .Section.Section--developers,
+  .Section.Section--closing {
+    gap: 40px;
+    padding: 96px 48px;
+  }
+
+  .Section.Section--governance .Content,
+  .Section.Section--developers .Content,
+  .Section.Section--closing .Content {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: min(520px, 52%);
+  }
+
+  /* Developers + closing — one button per row, full width of copy column */
+  .Section.Section--developers .button-wrapper,
+  .Section.Section--closing .button-wrapper {
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    box-sizing: border-box;
+  }
+
+  .Section.Section--developers .Buttons-primary,
+  .Section.Section--developers .Buttons-secondary,
+  .Section.Section--closing .Buttons-primary,
+  .Section.Section--closing .Buttons-secondary {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 44px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .Section.Section--developers .Buttons-secondary,
+  .Section.Section--closing .Buttons-secondary {
+    padding: 12px 24px;
+  }
+
+  .Section.Section--developers .Primary,
+  .Section.Section--developers .Secondary,
+  .Section.Section--closing .Primary,
+  .Section.Section--closing .Secondary {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    min-height: 16px;
+  }
+
+  /* Let body copy / headings size naturally (base CSS fixed heights break tablet layout) */
+  .Section.Section--developers
+    .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
+    height: auto;
+    min-height: 0;
+  }
+
+  .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
+    height: auto;
+    min-height: 0;
+  }
+
+  .Section.Section--closing .Explore-the-system-Review-the-model-Create-an-account-when-youre-ready {
+    height: auto;
+    min-height: 0;
+  }
+
+  /* Governance, Developers, closing, How It Works, Built for Both Sides — placeholder (tablet) */
+  .Section.Section--governance > .Placeholder,
+  .Section.Section--developers > .Placeholder,
+  .Section.Section--closing > .Placeholder,
+  .Section.Section--section3 > .Placeholder {
+    width: 320px;
+    max-width: 320px;
+    min-width: 320px;
+    flex-shrink: 0;
+    height: 340px;
+    min-height: 340px;
+    aspect-ratio: auto;
+    justify-self: end;
+  }
+
+  footer.site-footer {
+    height: auto;
+    padding: 0;
+  }
+
+  .site-footer-inner {
+    padding: 96px 64px;
+  }
+
+  .site-footer-main {
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: nowrap;
+  }
+
+  .site-footer-brand {
+    flex-shrink: 0;
+    width: 240px;
+    min-width: 200px;
+  }
+
+  .site-footer-desc {
+    width: 100%;
+    height: auto;
+  }
+
+  .site-footer-nav {
+    width: auto;
+    gap: 40px;
+    grid-template-columns: repeat(4, auto);
+  }
+
+  .site-footer-bottom {
+    justify-content: flex-start;
+    gap: 220px;
+    margin-top: 48px;
+  }
+
+  .site-footer-copyright {
+    margin-top: 48px;
+  }
+
+  footer.site-footer::before {
+    inset: auto;
+    top: 0;
+    right: 0;
+    width: 432.5px;
+    height: 598px;
+    background-position: top right;
+  }
 }

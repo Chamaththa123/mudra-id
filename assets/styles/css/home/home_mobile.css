@@ -3,6 +3,49 @@
 /* Mobile – base (covers all mobile widths up to 576px) */
 @media (max-width: 576px) {
 
+  /* Section 1 — The Shift: stacked layout + Story mobile SVG */
+  .Section1 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 64px 24px;
+  }
+
+  .Section1 .Content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .Section1 .section-title {
+    font-size: 32px;
+    line-height: 1.1;
+    padding: 12px 0 16px;
+  }
+
+  .Section1 .section-content {
+    color: #7e858b;
+  }
+
+  .section1-shift-visual {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .section1-shift-svg--desktop,
+  .section1-shift-svg--tablet {
+    display: none;
+  }
+
+  .section1-shift-svg--mobile {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
   .button-wrapper {
     width: 100%;
     max-width: 100%;
@@ -93,9 +136,21 @@
     background-color: #d9d9d9;
   }
 
-  .Section--section3 > .Placeholder {
+  /* How It Works + Built for Both Sides: stack + Developers-style block (not full-bleed 401px mobile card) */
+  .Section.Section--section3 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 80px 32px;
+  }
+
+  .Section.Section--section3 > .Placeholder {
+    width: min(320px, 100%);
+    max-width: 320px;
+    height: 340px;
+    min-height: 340px;
+    aspect-ratio: auto;
     align-self: center;
-    justify-self: end;
+    justify-self: center;
   }
   /* section 9 */
   .Section-9 {
