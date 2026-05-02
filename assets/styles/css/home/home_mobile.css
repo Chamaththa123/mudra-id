@@ -315,9 +315,59 @@
   .site-header-logo-text {
     font-size: 18px;
   }
+
+  /* --- FOOTER MOBILE STYLES --- */
+  footer.site-footer {
+    height: auto;
+    padding: 0;
+  }
+
+  .site-footer-inner {
+    padding: 80px 32px;
+    min-height: 1053.4px;
+    box-sizing: border-box;
+  }
+
+  .site-footer-main {
+    flex-direction: column;
+    gap: 48px;
+    flex-wrap: nowrap;
+  }
+
+  .site-footer-brand {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-footer-desc {
+    width: 100%;
+  }
+
+  .site-footer-nav {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+  }
+
+  .site-footer-bottom {
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .site-footer-bottom-links,
+  .site-footer-contact-col {
+    width: 100%;
+    flex: none;
+    margin: 0;
+  }
+
+  .site-footer-copyright {
+    margin-top: 48px;
+    text-align: center;
+  }
 }
 
 /* Very small mobile (e.g. 320px–380px) – tighter spacing */
 @media (max-width: 400px) {
-  
 }
