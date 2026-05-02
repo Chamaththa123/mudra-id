@@ -3,6 +3,15 @@
 /* Selectors follow home.css: Section modifiers (e.g. Section--section3), no ID-based layout rules. */
 
 @media (min-width: 577px) and (max-width: 1024px) {
+  .site-header {
+    height: 76px;
+  }
+
+  .site-hero {
+    height: 754px;
+    min-height: 754px;
+  }
+
   /* Section 1 — The Shift: copy full width on top, Story tablet SVG below (Figma) */
   .Section1 {
     width: 100%;
@@ -223,5 +232,14 @@
     min-height: 340px;
     aspect-ratio: auto;
     justify-self: end;
+  }
+
+  footer.site-footer::before {
+    inset: auto;
+    top: 0;
+    right: 0;
+    width: 432.5px;
+    height: 598px;
+    background-position: top right;
   }
 }
