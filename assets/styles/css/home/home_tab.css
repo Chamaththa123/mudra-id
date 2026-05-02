@@ -234,6 +234,48 @@
     justify-self: end;
   }
 
+  footer.site-footer {
+    height: auto;
+    padding: 0;
+  }
+
+  .site-footer-inner {
+    padding: 96px 64px;
+  }
+
+  .site-footer-main {
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: nowrap;
+  }
+
+  .site-footer-brand {
+    flex-shrink: 0;
+    width: 240px;
+    min-width: 200px;
+  }
+
+  .site-footer-desc {
+    width: 100%;
+    height: auto;
+  }
+
+  .site-footer-nav {
+    width: auto;
+    gap: 40px;
+    grid-template-columns: repeat(4, auto);
+  }
+
+  .site-footer-bottom {
+    justify-content: flex-start;
+    gap: 220px;
+    margin-top: 48px;
+  }
+
+  .site-footer-copyright {
+    margin-top: 48px;
+  }
+
   footer.site-footer::before {
     inset: auto;
     top: 0;
