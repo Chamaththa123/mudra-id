@@ -152,6 +152,37 @@
     align-self: center;
     justify-self: center;
   }
+  /* Section 8: Governance */
+  .Section.Section--governance {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--governance .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .Section.Section--governance .section-title {
+    font-size: 40px;
+    height: auto;
+    padding: 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--governance .Placeholder {
+    width: 100%;
+    height: 401px;
+    min-height: 401px;
+    max-width: 100%;
+    align-self: stretch;
+  }
+
   /* Section 9: Developers */
   .Section.Section--developers {
     flex-direction: column;
