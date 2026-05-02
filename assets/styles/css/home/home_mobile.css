@@ -152,6 +152,108 @@
     align-self: center;
     justify-self: center;
   }
+  /* Section 2: Feature */
+  .Section.Section--feature {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--feature .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .Section.Section--feature .section-title {
+    font-size: 40px;
+    height: auto;
+    padding: 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--feature .section-content {
+    height: auto;
+    padding: 0;
+  }
+
+  .Section.Section--feature .section-feature-visual {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    align-self: center;
+    margin: 0;
+  }
+
+  /* Section 5: Works Everywhere */
+  .Section.Section--works {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--works .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .Section.Section--works .section-title {
+    font-size: 40px;
+    height: auto;
+    padding: 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--works .section-content {
+    height: auto;
+    padding: 0;
+  }
+
+  .Section.Section--works .section-feature-visual {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    align-self: center;
+    margin: 0;
+  }
+
+  /* Section 6: Trust Without Friction */
+  .Section.Section--trust {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--trust .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .Section.Section--trust .section-title {
+    font-size: 40px;
+    height: auto;
+    padding: 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--trust .section-feature-visual {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    align-self: center;
+    margin: 0;
+  }
   /* Section 8: Governance */
   .Section.Section--governance {
     flex-direction: column;
