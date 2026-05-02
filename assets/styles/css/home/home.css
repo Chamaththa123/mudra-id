@@ -920,7 +920,7 @@ body {
 .Section--section3 .Content--section3 {
   box-sizing: border-box;
   justify-content: center;
-  padding: 80px 0 80px 0;
+  /* padding: 80px 0 80px 0; */
   display: flex;
   flex-direction: column;
 }
