@@ -136,9 +136,21 @@
     background-color: #d9d9d9;
   }
 
-  .Section--section3 > .Placeholder {
+  /* How It Works + Built for Both Sides: stack + Developers-style block (not full-bleed 401px mobile card) */
+  .Section.Section--section3 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 80px 32px;
+  }
+
+  .Section.Section--section3 > .Placeholder {
+    width: min(320px, 100%);
+    max-width: 320px;
+    height: 340px;
+    min-height: 340px;
+    aspect-ratio: auto;
     align-self: center;
-    justify-self: end;
+    justify-self: center;
   }
   /* section 9 */
   .Section-9 {

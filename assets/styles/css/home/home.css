@@ -300,18 +300,6 @@ body {
 }
 
 /* Governance, Developers, closing sections — fixed placeholder / image column */
-.Section.Section--governance > .Placeholder,
-.Section.Section--developers > .Placeholder,
-.Section.Section--closing > .Placeholder {
-  width: 320px;
-  max-width: min(320px, 100%);
-  min-width: 0;
-  height: 340px;
-  min-height: 340px;
-  aspect-ratio: unset;
-  flex-shrink: 0;
-  align-self: center;
-}
 
 .section-label {
   height: 16px;

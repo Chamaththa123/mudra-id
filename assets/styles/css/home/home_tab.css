@@ -125,4 +125,60 @@
   .Section.Section--trust .section-feature-visual .home-section6-slide .home-section6-anim-object {
     object-fit: contain;
   }
+
+  /* How It Works + Built for Both Sides — grid column for fixed gray block (same as Developers) */
+  .Section.Section--section3 {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 40px;
+    padding: 96px 48px;
+    align-items: center;
+  }
+
+  /* Governance, Developers, closing — same spacing & copy column as Feature rows (tablet) */
+  .Section.Section--governance,
+  .Section.Section--developers,
+  .Section.Section--closing {
+    gap: 40px;
+    padding: 96px 48px;
+  }
+
+  .Section.Section--governance .Content,
+  .Section.Section--developers .Content,
+  .Section.Section--closing .Content {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: min(520px, 52%);
+  }
+
+  /* Let body copy / headings size naturally (base CSS fixed heights break tablet layout) */
+  .Section.Section--developers
+    .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
+    height: auto;
+    min-height: 0;
+  }
+
+  .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
+    height: auto;
+    min-height: 0;
+  }
+
+  .Section.Section--closing .Explore-the-system-Review-the-model-Create-an-account-when-youre-ready {
+    height: auto;
+    min-height: 0;
+  }
+
+  /* Governance, Developers, closing, How It Works, Built for Both Sides — placeholder (tablet) */
+  .Section.Section--governance > .Placeholder,
+  .Section.Section--developers > .Placeholder,
+  .Section.Section--closing > .Placeholder,
+  .Section.Section--section3 > .Placeholder {
+    width: 320px;
+    max-width: 320px;
+    min-width: 320px;
+    flex-shrink: 0;
+    height: 340px;
+    min-height: 340px;
+    aspect-ratio: auto;
+    justify-self: end;
+  }
 }
