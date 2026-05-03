@@ -20,7 +20,7 @@
   }
 
   .Section1 .section-title {
-    font-size: 32px;
+    font-size: 48px;
     line-height: 1.1;
     padding: 12px 0 16px;
   }
@@ -174,7 +174,7 @@
   }
 
   .Section.Section--feature .section-title {
-    font-size: 40px;
+    font-size: 48px;
     height: auto;
     padding: 0;
     line-height: 1.1;
@@ -214,7 +214,7 @@
   }
 
   .Section.Section--works .section-title {
-    font-size: 40px;
+    font-size: 48px;
     height: auto;
     padding: 16px 0;
     line-height: 1.1;
@@ -250,7 +250,7 @@
   }
 
   .Section.Section--trust .section-title {
-    font-size: 40px;
+    font-size: 48px;
     height: auto;
     padding: 16px 0;
     line-height: 1.1;
@@ -280,7 +280,7 @@
   }
 
   .Section.Section--governance .section-title {
-    font-size: 40px;
+    font-size: 48px;
     height: auto;
     padding: 16px 0;
     line-height: 1.1;
@@ -310,7 +310,7 @@
     padding: 0;
   }
   .Section.Section--developers .section-title {
-    font-size: 40px;
+    font-size: 48px;
     height: auto;
     padding: 16px 0;
     line-height: 1.1;
@@ -351,8 +351,8 @@
   }
 
   .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
-    font-size: 40px;
-    height: 304px;
+    font-size: 48px;
+    height: 400px;
     padding: 0 0 16px 0;
     line-height: 1.1;
   }
