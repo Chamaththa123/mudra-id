@@ -209,7 +209,7 @@
   .Section.Section--works .Content {
     max-width: 100%;
     align-items: flex-start;
-    gap: 24px;
+    gap: 0;
     padding: 0;
   }
 
@@ -245,7 +245,7 @@
   .Section.Section--trust .Content {
     max-width: 100%;
     align-items: flex-start;
-    gap: 24px;
+    gap: 0;
     padding: 0;
   }
 
@@ -275,7 +275,7 @@
   .Section.Section--governance .Content {
     max-width: 100%;
     align-items: flex-start;
-    gap: 24px;
+    gap: 0;
     padding: 0;
   }
 
@@ -424,6 +424,10 @@
   footer.site-footer {
     height: auto;
     padding: 0;
+  }
+
+  footer.site-footer::before {
+    display: none;
   }
 
   .site-footer-inner {
