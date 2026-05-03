@@ -2,6 +2,9 @@
 
 /* Mobile – base (covers all mobile widths up to 576px) */
 @media (max-width: 576px) {
+  html {
+    background-position: 25% 0, 50% 0, 75% 0;
+  }
 
   /* Section 1 — The Shift: stacked layout + Story mobile SVG */
   .Section1 {
@@ -20,10 +23,6 @@
     font-size: 32px;
     line-height: 1.1;
     padding: 12px 0 16px;
-  }
-
-  .Section1 .section-content {
-    color: #7e858b;
   }
 
   .section1-shift-visual {
@@ -152,6 +151,12 @@
     align-self: center;
     justify-self: center;
   }
+
+  .Section--section3 .section4-sub-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   /* Section 2: Feature */
   .Section.Section--feature {
     flex-direction: column;
