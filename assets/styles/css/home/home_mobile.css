@@ -546,4 +546,10 @@
   .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
     font-size: 45px;
   }
+
+    .site-hero-bg-svg {
+    height: 120%;
+    width: 380%;
+    object-fit: cover;
+  }
 }
