@@ -352,7 +352,7 @@
 
   .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
     font-size: 48px;
-    height: 400px;
+    min-height: 420px;
     padding: 0 0 16px 0;
     line-height: 1.1;
   }
