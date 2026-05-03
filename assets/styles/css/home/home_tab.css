@@ -64,10 +64,10 @@
   }
 
   .site-hero-dashboard {
-    height: 532px;
+    height: 580px;
     width: auto;
     max-width: none;
-    top: 50%;
+    top: 55%;
   }
 
   .site-hero-dashboard-img {
@@ -210,6 +210,9 @@
   .Section.Section--governance,
   .Section.Section--developers,
   .Section.Section--closing {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 40px;
     padding: 96px 64px;
   }
