@@ -127,6 +127,10 @@ body {
   color: #1a1a1a;
 }
 
+.site-header-menu-btn {
+  display: none;
+}
+
 .site-header-nav {
   display: flex;
   flex-direction: row;
