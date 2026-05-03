@@ -380,6 +380,16 @@
     min-height: 723px;
   }
 
+  .site-hero-bg-svg {
+    height: 120%;
+    width: 360%;
+    object-fit: cover;
+  }
+
+  .site-hero-bg-svg--bottom {
+    margin-top: 0;
+  }
+
   .site-hero-content {
     margin-top: 95px;
     padding: 0 24px;
