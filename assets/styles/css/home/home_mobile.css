@@ -352,7 +352,7 @@
 
   .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
     font-size: 48px;
-    height: 400px;
+    min-height: 420px;
     padding: 0 0 16px 0;
     line-height: 1.1;
   }
@@ -541,4 +541,9 @@
 
 /* Very small mobile (e.g. 320px–380px) – tighter spacing */
 @media (max-width: 400px) {
+  .site-hero-title,
+  .section-title,
+  .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
+    font-size: 45px;
+  }
 }
