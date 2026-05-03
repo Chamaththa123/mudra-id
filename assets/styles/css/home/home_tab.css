@@ -7,9 +7,72 @@
     height: 76px;
   }
 
+  .site-header-inner {
+    padding: 18px 64px;
+  }
+
   .site-hero {
     height: 754px;
     min-height: 754px;
+  }
+
+    .site-hero-bg-svg {
+    height: 120%;
+    width: 180%;
+    object-fit: cover;
+  }
+
+  .site-hero-bg-svg--bottom {
+    margin-top: 0;
+  }
+
+  .site-hero-content {
+    margin-top: 76px;
+    padding: 80px 64px;
+  }
+
+  .site-hero-title {
+    font-size: 56px;
+    font-weight: 600;
+    width: 100%;
+    max-width: 700px;
+    padding: 16px 0;
+  }
+
+  .site-hero-title-line {
+    display: inline;
+  }
+
+  .site-hero-title-line:last-child {
+    white-space: nowrap;
+  }
+
+  .site-hero-desc {
+    width: 100%;
+    max-width: 380px;
+    padding-bottom: 40px;
+  }
+
+  .site-hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .site-hero-btn {
+    width: auto;
+  }
+
+  .site-hero-dashboard {
+    height: 532px;
+    width: auto;
+    max-width: none;
+    top: 50%;
+  }
+
+  .site-hero-dashboard-img {
+    height: 100%;
+    width: auto;
   }
 
   /* Section 1 — The Shift: copy full width on top, Story tablet SVG below (Figma) */
@@ -29,7 +92,7 @@
   }
 
   .Section1 .section-title {
-    font-size: 40px;
+    font-size: 48px;
     line-height: 1.05;
     letter-spacing: -0.5px;
     padding: 16px 0 20px;
@@ -70,7 +133,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    padding: 96px 48px;
+    padding: 96px 64px;
   }
 
   .Section.Section--feature .Content,
@@ -84,7 +147,7 @@
   .Section.Section--feature .section-title,
   .Section.Section--works .section-title,
   .Section.Section--trust .section-title {
-    font-size: 36px;
+    font-size: 48px;
     line-height: 1.08;
     letter-spacing: -0.4px;
     padding: 16px 0;
@@ -139,7 +202,7 @@
   .Section.Section--section3 {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 40px;
-    padding: 96px 48px;
+    padding: 96px 64px;
     align-items: center;
   }
 
@@ -148,7 +211,7 @@
   .Section.Section--developers,
   .Section.Section--closing {
     gap: 40px;
-    padding: 96px 48px;
+    padding: 96px 64px;
   }
 
   .Section.Section--governance .Content,
