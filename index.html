@@ -47,10 +47,9 @@
     <!-- Hero: background animation (SVGator) -->
     <section class="site-hero" aria-label="Hero">
         <div class="site-hero-bg" aria-hidden="true">
-            <object type="image/svg+xml" class="site-hero-bg-svg site-hero-bg-svg--bottom"
-                data="assets/animations/Hero%20Bottom.svg" width="1920" height="1080" aria-hidden="true"></object>
-            <object type="image/svg+xml" class="site-hero-bg-svg site-hero-bg-svg--top"
-                data="assets/animations/Hero%20top.svg" width="1920" height="1080" aria-hidden="true"></object>
+            <video autoplay muted loop playsinline preload="auto" class="site-hero-bg-video" onplaying="this.style.opacity=1">
+                <source src="assets/animations/heroVideo.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="site-hero-main">
             <div class="site-hero-content">
@@ -67,7 +66,7 @@
                         verify requests at the moment of interaction — so automation can scale without breaking trust.
                     </p>
                     <div class="site-hero-actions">
-                        <a href="#" class="site-hero-btn site-hero-btn--primary">Create an account</a>
+                        <a href="#" class="site-hero-btn site-hero-btn--primary">Get started</a>
                         <a href="#" class="site-hero-btn site-hero-btn--secondary">View documentation</a>
                     </div>
                 </div>
