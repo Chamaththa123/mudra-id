@@ -34,7 +34,7 @@
   initial-value: 90deg;
 }
 
-/* Remove default margin/padding so hero and sections sit flush with the viewport */
+/* --- GLOBAL / RESET --- */
 html {
   scroll-padding-top: 88px;
   background-image:
@@ -52,7 +52,175 @@ body {
   padding: 0;
 }
 
-/* Site header: logo left, nav + CTA right, over hero */
+/* --- COMMON / UTILITY --- */
+.Section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 64px;
+  padding: 120px 64px;
+  box-sizing: border-box;
+}
+
+.Content {
+  align-self: stretch;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.section-label {
+  height: 16px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #533afd;
+}
+
+.section-title {
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #0a0a0a;
+  padding: 24px 0px;
+}
+
+.section-title .text-style-1 {
+  color: #7e858b;
+}
+
+.section-content {
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #0a0a0a;
+}
+
+.section-list {
+  margin: 0;
+  padding: 24px 0 0 30px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #0a0a0a;
+  list-style: disc;
+}
+
+.section-list li {
+  margin-bottom: 0.5rem;
+}
+
+.button-wrapper {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+  padding: 0;
+}
+
+.Buttons-primary {
+  flex-grow: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border-radius: 36px;
+  background-color: #2b2b2b;
+}
+
+.Primary {
+  width: 140px;
+  height: 16px;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  text-align: center;
+  color: #fff;
+}
+
+.Buttons-secondary {
+  flex-grow: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border-radius: 36px;
+  border: solid 1px #533afd;
+  background-color: #fff;
+}
+
+.Secondary {
+  width: 62px;
+  height: 16px;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  text-align: center;
+  color: #533afd;
+}
+
+.Placeholder {
+  width: 100%;
+  max-width: 628px;
+  min-height: 401px;
+  aspect-ratio: 628 / 401;
+  flex-grow: 0;
+  flex-shrink: 1;
+  border-radius: 16px;
+  background-color: #d9d9d9;
+}
+
+/* --- HEADER --- */
 .site-header {
   position: absolute;
   top: 0;
@@ -183,163 +351,12 @@ body {
   font-size: 16px;
   font-weight: bold;
 }
+
 .site-header-cta .site-header-link-arrow {
   opacity: 1;
 }
 
-.Section {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 64px;
-  padding: 120px 64px;
-  box-sizing: border-box;
-}
-
-.Content {
-  align-self: stretch;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0;
-}
-
-.section-content {
-  align-self: stretch;
-  flex-grow: 0;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: -0.25px;
-  text-align: left;
-  color: #0a0a0a;
-}
-
-.button-wrapper {
-  /* width: 362px; */
-  /* height: 40px; */
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 32px;
-  padding: 0;
-}
-
-.Buttons-primary {
-  /* width: 204px; */
-  /* height: 40px; */
-  flex-grow: 0;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 32px;
-  border-radius: 36px;
-  background-color: #2b2b2b;
-}
-
-.Primary {
-  width: 140px;
-  height: 16px;
-  flex-grow: 0;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: -0.25px;
-  text-align: center;
-  color: #fff;
-}
-
-.Buttons-secondary {
-  flex-grow: 0;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 32px;
-  border-radius: 36px;
-  border: solid 1px #533afd;
-  background-color: #fff;
-}
-
-.Secondary {
-  width: 62px;
-  height: 16px;
-  flex-grow: 0;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: -0.25px;
-  text-align: center;
-  color: #533afd;
-}
-
-.Placeholder {
-  width: 100%;
-  max-width: 628px;
-  min-height: 401px;
-  aspect-ratio: 628 / 401;
-  flex-grow: 0;
-  flex-shrink: 1;
-  border-radius: 16px;
-  background-color: #d9d9d9;
-}
-
-/* Governance, Developers, closing sections — fixed placeholder / image column */
-
-.section-label {
-  height: 16px;
-  align-self: stretch;
-  flex-grow: 0;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: -0.25px;
-  text-align: left;
-  color: #533afd;
-}
-
-.section-title {
-  align-self: stretch;
-  flex-grow: 0;
-  font-family: Inter;
-  font-size: 48px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: -0.25px;
-  text-align: left;
-  color: #0a0a0a;
-  padding: 24px 0px;
-}
-
-.section-title .text-style-1 {
-  color: #7e858b;
-}
-
-/* Hero: animated SVG fills full section height */
+/* --- HERO SECTION --- */
 .site-hero {
   position: relative;
   width: 100%;
@@ -347,24 +364,7 @@ body {
   min-height: 798px;
   box-sizing: border-box;
   overflow: hidden;
-  /* Placeholder until deferred SVGs attach (avoids white flash) */
-  /* background: linear-gradient(180deg, #0a0a12 0%, #12121c 45%, #16161f 100%); */
 }
-
-/* .site-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px),
-    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px),
-    repeating-linear-gradient(to bottom, rgba(140, 140, 140, 0.28) 0 7px, transparent 7px 14px);
-  background-size: 1px 100%, 1px 100%, 1px 100%;
-  background-position: calc(50% - 320px) 0, 50% 0, calc(50% + 320px) 0;
-  background-repeat: no-repeat;
-} */
 
 .site-hero-bg {
   position: absolute;
@@ -372,8 +372,6 @@ body {
   z-index: 0;
   pointer-events: none;
   isolation: isolate;
-  /* Contain paints inside the hero background so the two SVGator animations
-     can't invalidate the whole hero/page on every frame. */
   contain: layout paint style;
 }
 
@@ -384,12 +382,9 @@ body {
   height: 135%;
   max-width: none;
   display: block;
-  /* Stretch SVG to full hero box so stripes/gradient span the full viewport width */
   object-fit: contain;
   transform: translateZ(0);
   backface-visibility: hidden;
-  /* Each <object> runs its own SVGator JS; isolate its repaints to its own
-     compositor layer so one animation can't jank the other or the hero UI. */
   contain: layout paint style;
   will-change: transform, opacity;
 }
@@ -401,8 +396,6 @@ body {
 
 .site-hero-bg-svg--top {
   z-index: 1;
-  /* translateX for layout; do NOT use filter: blur here — it repaints the full
-     animated layer every frame with SVGator and will freeze/jank the hero. */
   transform: translate3d(-2%, 0, 0);
   opacity: 0.92;
 }
@@ -413,7 +406,6 @@ body {
   }
 }
 
-/* Hero left column (copy + CTAs) */
 .site-hero-content {
   position: relative;
   z-index: 3;
@@ -451,7 +443,6 @@ body {
 .site-hero-title {
   margin: 0;
   width: 544px;
-  /* max-width: 100%; */
   flex-grow: 0;
   font-family: Inter;
   font-size: 64px;
@@ -546,7 +537,6 @@ body {
   }
 }
 
-/* Header wordmark still uses this class */
 .site-hero-title-rest {
   color: rgba(10, 10, 10, 0.68);
 }
@@ -604,23 +594,12 @@ body {
   background-color: #2b2b2b;
 }
 
-/* .site-hero-btn--primary:hover {
-  background-color: #0a0a0a;
-  color: #fff;
-} */
-
 .site-hero-btn--secondary {
   color: #533afd;
   background-color: #fff;
   border: 1px solid #533afd;
 }
 
-/* .site-hero-btn--secondary:hover {
-  background-color: rgba(83, 58, 253, 0.06);
-  color: #533afd;
-} */
-
-/* Hero dashboard image: right side, vertically centered */
 .site-hero-dashboard {
   position: absolute;
   right: 0;
@@ -637,7 +616,6 @@ body {
   height: auto;
 }
 
-/* Wide screens (>1401px): two-column hero — full dashboard PNG in flow (not absolute) */
 .site-hero-dashboard-wide {
   display: none;
 }
@@ -691,7 +669,7 @@ body {
   }
 }
 
-/* section 01 */
+/* --- SECTION 1: THE SHIFT --- */
 .Section1 {
   width: 100%;
   max-width: 1280px;
@@ -734,7 +712,11 @@ body {
   display: none;
 }
 
-/* section 2 — Feature / Section 3 A (Desktop) */
+/* --- SECTION 2: FEATURE --- */
+.Section--feature {
+  /* Inherits from .Section */
+}
+
 .section-feature-visual {
   width: 628px;
   height: 285px;
@@ -758,7 +740,7 @@ body {
   pointer-events: none;
 }
 
-/* Section 2 Feature: Section 3 A ↔ B slide animation (see home.js #home-section3-slides) */
+/* Section 2 Feature: Section 3 A ↔ B slide animation */
 .section-feature-visual .home-section3-anim-wrap {
   position: relative;
   width: 100%;
@@ -816,7 +798,85 @@ body {
   transition: none;
 }
 
-/* Section 6 Feature: Section 6 A ↔ B slide animation (see home.js #home-section6-slides) */
+/* --- SECTION 3 & 4: HOW IT WORKS / BUILT FOR BOTH SIDES --- */
+.Section.Section--section3 {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: stretch;
+  padding: 120px 64px;
+  box-sizing: border-box;
+}
+
+.Section--section3 .Content--section3,
+.Section--section3 > .Placeholder {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.Section--section3 .Content--section3 {
+  flex-grow: 0;
+  width: auto;
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1025px) {
+  .Section--section3 > .Placeholder {
+    min-width: 0;
+    align-self: center;
+    justify-self: end;
+  }
+}
+
+.Section--section3 .section4-sub-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Section--section3 .section4-sub-col {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.section4-sub-label {
+  margin-top: -2px;
+  padding-bottom: 24px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #533afd;
+}
+
+/* --- SECTION 5: WORKS EVERYWHERE --- */
+.Section--works {
+  /* Inherits from .Section */
+}
+
+/* --- SECTION 6: TRUST WITHOUT FRICTION --- */
+.Section--trust {
+  /* Inherits from .Section */
+}
+
+/* Section 6 Feature: Section 6 A ↔ B slide animation */
 .section-feature-visual .home-section6-anim-wrap {
   position: relative;
   width: 100%;
@@ -874,105 +934,16 @@ body {
   transition: none;
 }
 
-.section-list {
-  margin: 0;
-  padding: 24px 0 0 30px;
-  align-self: stretch;
-  flex-grow: 0;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: -0.25px;
-  text-align: left;
-  color: #0a0a0a;
-  list-style: disc;
+/* --- SECTION 8: GOVERNANCE --- */
+.Section--governance {
+  /* Inherits from .Section */
 }
 
-.section-list li {
-  margin-bottom: 0.5rem;
+/* --- SECTION 9: DEVELOPERS --- */
+.Section--developers {
+  /* Inherits from .Section */
 }
 
-/* section 3 — How It Works: equal columns A & B (CSS Grid 1fr 1fr), gap 64px, height 710px */
-.Section.Section--section3 {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: stretch;
-  padding: 120px 64px;
-  box-sizing: border-box;
-}
-
-/* Grid items: allow text to shrink so 1fr stays equal (override .Content flex-grow) */
-.Section--section3 .Content--section3,
-.Section--section3 > .Placeholder {
-  min-width: 0;
-  max-width: 100%;
-}
-
-.Section--section3 .Content--section3 {
-  flex-grow: 0;
-  width: auto;
-}
-
-/* Left column (A) */
-.Section--section3 .Content--section3 {
-  box-sizing: border-box;
-  justify-content: center;
-  /* padding: 80px 0 80px 0; */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Right-column gray block: same box as .Section + .Placeholder (e.g. Developers), not stretched to row height */
-@media (min-width: 1025px) {
-  .Section--section3 > .Placeholder {
-    min-width: 0;
-    align-self: center;
-    justify-self: end;
-  }
-}
-
-/* section 4 — full-width row under main 2 cols; inner 2 equal columns, gap 64px */
-.Section--section3 .section4-sub-section {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
-  min-width: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.Section--section3 .section4-sub-col {
-  min-width: 0;
-  max-width: 100%;
-}
-
-.section4-sub-label {
-  margin-top: -2px;
-  padding-bottom: 24px;
-  align-self: stretch;
-  flex-grow: 0;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: -0.25px;
-  text-align: left;
-  color: #533afd;
-}
-
-
-/* section 9 */
 .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
   height: 48px;
   align-self: stretch;
@@ -989,7 +960,11 @@ body {
   padding-bottom: 48px;
 }
 
-/* section 10 */
+/* --- SECTION 10: CLOSING --- */
+.Section--closing {
+  /* Inherits from .Section */
+}
+
 .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
   height: 240px;
   align-self: stretch;
@@ -1026,6 +1001,7 @@ body {
   padding-bottom: 48px;
 }
 
+/* --- FOOTER --- */
 footer.site-footer {
   position: relative;
   width: 100%;
@@ -1037,7 +1013,6 @@ footer.site-footer {
   font-family: Inter, sans-serif;
 }
 
-/* Decorative bg image on its own layer so opacity doesn’t fade footer text */
 footer.site-footer::before {
   content: "";
   position: absolute;
@@ -1051,7 +1026,6 @@ footer.site-footer::before {
   pointer-events: none;
 }
 
-/* Content aligned to 1280px; footer background stays full width */
 .site-footer-inner {
   position: relative;
   z-index: 1;
@@ -1066,7 +1040,6 @@ footer.site-footer::before {
   box-sizing: border-box;
 }
 
-/* Top row: brand + 4-column nav */
 .site-footer-main {
   display: flex;
   flex-direction: row;
@@ -1160,7 +1133,6 @@ footer.site-footer::before {
   transform: translateY(-1px);
 }
 
-/* Right block: 640px wide, 4 cols, 120px gap */
 .site-footer-nav {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1210,11 +1182,6 @@ footer.site-footer::before {
   text-decoration: none;
 }
 
-/* .site-footer-links a:hover {
-  color: #635bff;
-} */
-
-/* Bottom row: Links (left) + Contact (right), large space between */
 .site-footer-bottom {
   display: flex;
   flex-direction: row;
@@ -1272,10 +1239,6 @@ footer.site-footer::before {
   color: #0a0a0a;
   text-decoration: none;
 }
-
-/* .site-footer-contact-item a:hover {
-  color: #635bff;
-} */
 
 .site-footer-copyright {
   margin: 64px 0 0;

@@ -1,50 +1,10 @@
-
-
 /* Mobile – base (covers all mobile widths up to 576px) */
 @media (max-width: 576px) {
   html {
     background-position: 25% 0, 50% 0, 75% 0;
   }
 
-  /* Section 1 — The Shift: stacked layout + Story mobile SVG */
-  .Section1 {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 40px;
-    padding: 64px 24px;
-  }
-
-  .Section1 .Content {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .Section1 .section-title {
-    font-size: 45px;
-    line-height: 1.1;
-    padding: 12px 0 16px;
-  }
-
-  .section1-shift-visual {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    min-height: 0;
-    padding: 0;
-  }
-
-  .section1-shift-svg--desktop,
-  .section1-shift-svg--tablet {
-    display: none;
-  }
-
-  .section1-shift-svg--mobile {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
+  /* --- UTILITY / COMMON --- */
   .button-wrapper {
     width: 100%;
     max-width: 100%;
@@ -60,6 +20,7 @@
     padding: 0;
     box-sizing: border-box;
   }
+
   .Buttons-primary {
     width: 100%;
     min-width: 0;
@@ -77,6 +38,7 @@
     background-color: #2b2b2b;
     box-sizing: border-box;
   }
+
   .Primary {
     width: auto;
     max-width: 100%;
@@ -93,6 +55,7 @@
     text-align: center;
     color: #fff;
   }
+
   .Buttons-secondary {
     width: 100%;
     min-width: 0;
@@ -111,6 +74,7 @@
     background-color: #fff;
     box-sizing: border-box;
   }
+
   .Secondary {
     width: auto;
     max-width: 100%;
@@ -127,6 +91,7 @@
     text-align: center;
     color: #533afd;
   }
+
   .Placeholder {
     height: 401px;
     align-self: stretch;
@@ -135,251 +100,34 @@
     background-color: #d9d9d9;
   }
 
-  /* How It Works + Built for Both Sides: stack + Developers-style block (not full-bleed 401px mobile card) */
-  .Section.Section--section3 {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 80px 32px;
+  /* --- HEADER --- */
+  .site-header-inner {
+    padding: 12px 24px;
   }
 
-  .Section.Section--section3 .section-title {
-    font-size: 45px;
-    line-height: 1.1;
+  .site-header-nav {
+    display: none;
   }
 
-  .Section.Section--section3 > .Placeholder {
-    width: min(320px, 100%);
-    max-width: 320px;
-    height: 340px;
-    min-height: 340px;
-    aspect-ratio: auto;
-    align-self: center;
-    justify-self: center;
+  .site-header-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
   }
 
-  .Section--section3 .section4-sub-section {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .site-header-menu-btn svg {
+    display: block;
   }
 
-  /* Section 2: Feature */
-  .Section.Section--feature {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 80px 32px;
-    gap: 40px;
-    height: auto;
+  .site-header-logo-text {
+    font-size: 18px;
   }
 
-  .Section.Section--feature .Content {
-    max-width: 100%;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 0;
-  }
-
-  .Section.Section--feature .section-title {
-    font-size: 45px;
-    height: auto;
-    padding: 0;
-    line-height: 1.1;
-  }
-
-  .Section.Section--feature .section-content {
-    height: auto;
-    padding: 0;
-  }
-
-  .Section.Section--feature .section-list {
-    padding-top: 0;
-  }
-
-  .Section.Section--feature .section-feature-visual {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    align-self: center;
-    margin: 0;
-  }
-
-  /* Section 5: Works Everywhere */
-  .Section.Section--works {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 80px 32px;
-    gap: 40px;
-    height: auto;
-  }
-
-  .Section.Section--works .Content {
-    max-width: 100%;
-    align-items: flex-start;
-    gap: 0;
-    padding: 0;
-  }
-
-  .Section.Section--works .section-title {
-    font-size: 45px;
-    height: auto;
-    padding: 16px 0;
-    line-height: 1.1;
-  }
-
-  .Section.Section--works .section-content {
-    height: auto;
-    padding: 0;
-  }
-
-  .Section.Section--works .section-feature-visual {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    align-self: center;
-    margin: 0;
-  }
-
-  /* Section 6: Trust Without Friction */
-  .Section.Section--trust {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 80px 32px;
-    gap: 40px;
-    height: auto;
-  }
-
-  .Section.Section--trust .Content {
-    max-width: 100%;
-    align-items: flex-start;
-    gap: 0;
-    padding: 0;
-  }
-
-  .Section.Section--trust .section-title {
-    font-size: 45px;
-    height: auto;
-    padding: 16px 0;
-    line-height: 1.1;
-  }
-
-  .Section.Section--trust .section-feature-visual {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    align-self: center;
-    margin: 0;
-  }
-  /* Section 8: Governance */
-  .Section.Section--governance {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 80px 32px;
-    gap: 40px;
-    height: auto;
-  }
-
-  .Section.Section--governance .Content {
-    max-width: 100%;
-    align-items: flex-start;
-    gap: 0;
-    padding: 0;
-  }
-
-  .Section.Section--governance .section-title {
-    font-size: 45px;
-    height: auto;
-    padding: 16px 0;
-    line-height: 1.1;
-  }
-
-  .Section.Section--governance .Placeholder {
-    width: 100%;
-    height: 401px;
-    min-height: 401px;
-    max-width: 100%;
-    align-self: stretch;
-  }
-
-  /* Section 9: Developers */
-  .Section.Section--developers {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 80px 32px;
-    gap: 40px;
-    height: auto;
-  }
-
-  .Section.Section--developers .Content {
-    max-width: 100%;
-    align-items: flex-start;
-    gap: 0;
-    padding: 0;
-  }
-  .Section.Section--developers .section-title {
-    font-size: 45px;
-    height: auto;
-    padding: 16px 0;
-    line-height: 1.1;
-  }
-
-  .Section.Section--developers .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
-    height: auto;
-    padding: 0;
-  }
-
-  .Section.Section--developers .Placeholder {
-    width: 100%;
-    height: 401px;
-    min-height: 401px;
-    max-width: 100%;
-    align-self: stretch;
-  }
-
-  .Section.Section--developers .button-wrapper {
-    margin-top: 40px;
-    gap: 24px;
-  }
-
-  /* Section 10: Closing */
-  .Section.Section--closing {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 80px 32px;
-    gap: 40px;
-    height: auto;
-  }
-
-  .Section.Section--closing .Content {
-    max-width: 100%;
-    align-items: flex-start;
-    gap: 0;
-    padding: 0;
-  }
-
-  .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
-    font-size: 45px;
-    min-height: 420px;
-    padding: 0 0 16px 0;
-    line-height: 1.1;
-  }
-
-  .Section.Section--closing .Explore-the-system-Review-the-model-Create-an-account-when-youre-ready {
-    height: auto;
-    padding: 0;
-  }
-
-  .Section.Section--closing .Placeholder {
-    width: 100%;
-    height: 401px;
-    min-height: 401px;
-    max-width: 100%;
-    align-self: stretch;
-  }
-
-  .Section.Section--closing .button-wrapper {
-    margin-top: 40px;
-    gap: 24px;
-  }
-
+  /* --- HERO --- */
   .site-hero {
     height: 723px;
     min-height: 723px;
@@ -456,33 +204,293 @@
     display: none;
   }
 
-  .site-header-inner {
-    padding: 12px 24px;
+  /* --- SECTION 1: THE SHIFT --- */
+  .Section1 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 64px 24px;
   }
 
-  .site-header-nav {
+  .Section1 .Content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .Section1 .section-title {
+    font-size: 45px;
+    line-height: 1.1;
+    padding: 12px 0 16px;
+  }
+
+  .section1-shift-visual {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .section1-shift-svg--desktop,
+  .section1-shift-svg--tablet {
     display: none;
   }
 
-  .site-header-menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-  }
-
-  .site-header-menu-btn svg {
+  .section1-shift-svg--mobile {
     display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
-  .site-header-logo-text {
-    font-size: 18px;
+  /* --- SECTION 2: FEATURE --- */
+  .Section.Section--feature {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
   }
 
-  /* --- FOOTER MOBILE STYLES --- */
+  .Section.Section--feature .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0;
+  }
+
+  .Section.Section--feature .section-title {
+    font-size: 45px;
+    height: auto;
+    padding: 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--feature .section-content {
+    height: auto;
+    padding: 0;
+  }
+
+  .Section.Section--feature .section-list {
+    padding-top: 0;
+  }
+
+  .Section.Section--feature .section-feature-visual {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    align-self: center;
+    margin: 0;
+  }
+
+  /* --- SECTION 3 & 4: HOW IT WORKS / BUILT FOR BOTH SIDES --- */
+  .Section.Section--section3 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 80px 32px;
+  }
+
+  .Section.Section--section3 .section-title {
+    font-size: 45px;
+    line-height: 1.1;
+  }
+
+  .Section.Section--section3 > .Placeholder {
+    width: min(320px, 100%);
+    max-width: 320px;
+    height: 340px;
+    min-height: 340px;
+    aspect-ratio: auto;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .Section--section3 .section4-sub-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* --- SECTION 5: WORKS EVERYWHERE --- */
+  .Section.Section--works {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--works .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+  }
+
+  .Section.Section--works .section-title {
+    font-size: 45px;
+    height: auto;
+    padding: 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--works .section-content {
+    height: auto;
+    padding: 0;
+  }
+
+  .Section.Section--works .section-feature-visual {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    align-self: center;
+    margin: 0;
+  }
+
+  /* --- SECTION 6: TRUST WITHOUT FRICTION --- */
+  .Section.Section--trust {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--trust .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+  }
+
+  .Section.Section--trust .section-title {
+    font-size: 45px;
+    height: auto;
+    padding: 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--trust .section-feature-visual {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    align-self: center;
+    margin: 0;
+  }
+
+  /* --- SECTION 8: GOVERNANCE --- */
+  .Section.Section--governance {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--governance .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+  }
+
+  .Section.Section--governance .section-title {
+    font-size: 45px;
+    height: auto;
+    padding: 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--governance .Placeholder {
+    width: 100%;
+    height: 401px;
+    min-height: 401px;
+    max-width: 100%;
+    align-self: stretch;
+  }
+
+  /* --- SECTION 9: DEVELOPERS --- */
+  .Section.Section--developers {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--developers .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+  }
+
+  .Section.Section--developers .section-title {
+    font-size: 45px;
+    height: auto;
+    padding: 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--developers .Create-an-account-get-your-keys-and-integrate-MudraID-into-your-agent-runtime-or-your-verification {
+    height: auto;
+    padding: 0;
+  }
+
+  .Section.Section--developers .Placeholder {
+    width: 100%;
+    height: 401px;
+    min-height: 401px;
+    max-width: 100%;
+    align-self: stretch;
+  }
+
+  .Section.Section--developers .button-wrapper {
+    margin-top: 40px;
+    gap: 24px;
+  }
+
+  /* --- SECTION 10: CLOSING --- */
+  .Section.Section--closing {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  .Section.Section--closing .Content {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+  }
+
+  .Section.Section--closing .Build-for-a-future-where-agents-and-websites-interact-securely-at-scale {
+    font-size: 45px;
+    min-height: 420px;
+    padding: 0 0 16px 0;
+    line-height: 1.1;
+  }
+
+  .Section.Section--closing .Explore-the-system-Review-the-model-Create-an-account-when-youre-ready {
+    height: auto;
+    padding: 0;
+  }
+
+  .Section.Section--closing .Placeholder {
+    width: 100%;
+    height: 401px;
+    min-height: 401px;
+    max-width: 100%;
+    align-self: stretch;
+  }
+
+  .Section.Section--closing .button-wrapper {
+    margin-top: 40px;
+    gap: 24px;
+  }
+
+  /* --- FOOTER --- */
   footer.site-footer {
     height: auto;
     padding: 0;
