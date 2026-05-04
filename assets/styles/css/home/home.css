@@ -25,7 +25,7 @@
 @property --hero-c5 {
   syntax: '<color>';
   inherits: false;
-  initial-value: #00c8ff;
+  initial-value: #610088;
 }
 
 @property --hero-angle {
@@ -456,7 +456,7 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0.9;
-  animation: hero-text-gradient 35s ease infinite;
+  animation: hero-text-gradient 30s ease infinite;
 }
 
 .site-hero-title-line {
