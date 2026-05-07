@@ -165,6 +165,12 @@ body {
   padding: 12px 32px;
   border-radius: 36px;
   background-color: #2b2b2b;
+  transition: background-color 0.25s ease;
+  cursor: pointer;
+}
+
+.Buttons-primary:hover {
+  background-color: #533AFD;
 }
 
 .Primary {
@@ -192,6 +198,16 @@ body {
   border-radius: 36px;
   border: solid 1px #533afd;
   background-color: #fff;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+
+.Buttons-secondary:hover {
+  background-color: #533AFD;
+}
+
+.Buttons-secondary:hover .Secondary {
+  color: #fff;
 }
 
 .Secondary {
@@ -350,6 +366,11 @@ body {
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
+  transition: background-color 0.25s ease;
+}
+
+.site-header-cta:hover {
+  background-color: #533AFD;
 }
 
 .site-header-cta .site-header-link-arrow {
@@ -589,6 +610,12 @@ body {
   box-sizing: border-box;
   border: none;
   cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.site-hero-btn:hover {
+  background-color: #533AFD;
+  color: #fff;
 }
 
 .site-hero-btn--primary {
