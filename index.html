@@ -14,9 +14,54 @@
     <link rel="stylesheet" href="./assets/styles/css/home/home.css">
     <link rel="stylesheet" href="./assets/styles/css/home/home_mobile.css">
     <link rel="stylesheet" href="./assets/styles/css/home/home_tab.css">
+    <!-- Page loader: inline styles so it renders instantly -->
+    <style>
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .page-loader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .page-loader .loader {
+            width: 45px;
+            height: 40px;
+            background:
+                linear-gradient(#0000 calc(1*100%/6), #533AFD 0 calc(3*100%/6), #0000 0),
+                linear-gradient(#0000 calc(2*100%/6), #533AFD 0 calc(4*100%/6), #0000 0),
+                linear-gradient(#0000 calc(3*100%/6), #533AFD 0 calc(5*100%/6), #0000 0);
+            background-size: 10px 400%;
+            background-repeat: no-repeat;
+            animation: matrix 1s infinite linear;
+        }
+
+        @keyframes matrix {
+            0% {
+                background-position: 0% 100%, 50% 100%, 100% 100%;
+            }
+
+            100% {
+                background-position: 0% 0%, 50% 0%, 100% 0%;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Page loading overlay -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader"></div>
+    </div>
     <header class="site-header">
         <div class="site-header-inner">
             <a href="/" class="site-header-logo" aria-label="MudraID home">
@@ -28,7 +73,7 @@
             </a>
             <button class="site-header-menu-btn" aria-label="Open menu" aria-expanded="false">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 6h18M3 12h18M3 18h18" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 6h18M3 12h18M3 18h18" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </button>
             <nav class="site-header-nav" aria-label="Main navigation">
@@ -47,9 +92,14 @@
     <!-- Hero: background animation (SVGator) -->
     <section class="site-hero" aria-label="Hero">
         <div class="site-hero-bg" aria-hidden="true">
-            <video autoplay muted loop playsinline preload="auto" class="site-hero-bg-video" onplaying="this.style.opacity=1">
-                <source src="assets/animations/heroVideo.mp4" type="video/mp4">
-            </video>
+            <div class="site-hero-bg-video-stack">
+                <video autoplay muted playsinline preload="auto" class="site-hero-bg-video">
+                    <source src="assets/animations/heroVideo.mp4" type="video/mp4">
+                </video>
+                <video muted playsinline preload="auto" class="site-hero-bg-video">
+                    <source src="assets/animations/heroVideo.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
         <div class="site-hero-main">
             <div class="site-hero-content">
@@ -61,13 +111,14 @@
                         <span class="site-hero-title-line">infrastructure</span>
                         <span class="site-hero-title-line">for AI agents</span>
                     </h1>
-                    <p class="site-hero-desc">Give autonomous agents a verifiable identity, delegate authority safely,
-                        and
-                        verify requests at the moment of interaction — so automation can scale without breaking trust.
+                    <p class="site-hero-desc">Verify AI agents, delegate authority securely, and validate every
+                        interaction in real time.<br>
+                        Give every AI agent a verifiable identity. Delegate authority safely. Verify each request in
+                        real time — so automation can scale without breaking trust.
                     </p>
                     <div class="site-hero-actions">
-                        <a href="#" class="site-hero-btn site-hero-btn--primary">Get started</a>
-                        <a href="#" class="site-hero-btn site-hero-btn--secondary">View documentation</a>
+                        <a href="#" class="site-hero-btn site-hero-btn--primary">Get Started</a>
+                        <a href="#" class="site-hero-btn site-hero-btn--secondary">View Documentation</a>
                     </div>
                 </div>
             </div>
@@ -79,8 +130,8 @@
         <div class="site-hero-dashboard">
             <picture>
                 <source media="(min-width: 577px) and (max-width: 1024px)" srcset="assets/img/tab_dashbaord.png">
-                <img src="assets/img/heroDashboardImage.png" alt="Product dashboard preview" class="site-hero-dashboard-img"
-                    width="640" height="400" loading="eager" decoding="async">
+                <img src="assets/img/heroDashboardImage.png" alt="Product dashboard preview"
+                    class="site-hero-dashboard-img" width="640" height="400" loading="eager" decoding="async">
             </picture>
         </div>
     </section>
@@ -90,17 +141,20 @@
         <div class="Content">
             <span class="section-label">The Shift</span>
             <span class="section-title">
-
-                The internet was built for humans.
-                <span class="text-style-1">Autonomous agents are now active participants.</span>
+                <span class="text-style-1">The internet</span>
+                is no longer just for humans.
             </span>
             <span class="section-content">
-                AI agents browse, retrieve, transact, and communicate — often without human intervention. They’re
-                becoming part of the Internet's normal flow.
-                 <br />
-                 <br />
-                But while the web can identify people and servers, it has no native way to recognize AI agents — who
-                they are, where they come from, or whether they can be trusted.
+                AI agents now browse, retrieve data, transact, and communicate — often without human involvement.
+                <br /><br />
+                But today’s web infrastructure can’t answer basic questions about them:
+                <ul class="section-list">
+                    <li>Who is this agent?</li>
+                    <li>Who authorized it?</li>
+                    <li>Can it be trusted?</li>
+                </ul>
+                <br />
+                There’s no native identity layer for AI agents.
             </span>
         </div>
         <div class="section1-shift-visual" aria-hidden="true">
@@ -108,9 +162,10 @@
                 class="section1-shift-svg section1-shift-svg--desktop" width="658" height="585"
                 aria-label="MudraID Core and Verification Gateway diagram"></object>
             <object data="assets/animations/Story%201%2C2%20Tablet.svg" type="image/svg+xml"
-                class="section1-shift-svg section1-shift-svg--tablet"  aria-hidden="true"></object>
+                class="section1-shift-svg section1-shift-svg--tablet" aria-hidden="true"></object>
             <object data="assets/animations/Story%201%20Mobile.svg" type="image/svg+xml"
-                class="section1-shift-svg section1-shift-svg--mobile" width="658" height="585" aria-hidden="true"></object>
+                class="section1-shift-svg section1-shift-svg--mobile" width="658" height="585"
+                aria-hidden="true"></object>
         </div>
     </div>
 
@@ -119,18 +174,15 @@
         <div class="Content">
             <span class="section-label">Feature</span>
             <span class="section-title">
-                A shared identity and trust layer for
-                <span class="text-style-1">AI agents</span>
+                A shared identity and <span class="text-style-1">trust layer</span>
             </span>
             <span class="section-content">
-                MudraID issues cryptographic identity for agents and provides a simple way for websites and other agents
-                to verify that identity — without guesswork.
+                MudraID gives AI agents a secure, verifiable identity and lets systems trust them without guesswork.
             </span>
             <ul class="section-list">
-                <li>Verifiable agent identity that can’t be spoofed by changing IPs or headers</li>
-                <li>Explicit delegation so an agent can act on behalf of a user or organization with scoped permissions
-                </li>
-                <li>Signed, auditable interactions so every action is attributable and reviewable</li>
+                <li>Verifiable identity - Agents have cryptographic identities that can’t be faked by IPs or headers</li>
+                <li>Delegated authority - Agents act on behalf of users or organizations with clearly scoped permissions</li>
+                <li>Signed interactions - Every request is provable, traceable, and auditable</li>
             </ul>
         </div>
         <div class="section-feature-visual home-section3-visual" aria-hidden="true">
@@ -159,8 +211,14 @@
                 <span class="text-style-1">verification</span>
             </span>
             <span class="section-content">
-                MudraID fits into existing web infrastructure using well-understood patterns: cryptographic identity for
-                the agent, delegated authorization from the human/org, and per-request proof at runtime.
+                MudraID follows a simple, proven model:
+                <ul class="section-list">
+                    <li>Identity - Each agent has a cryptographic identity</li>
+                    <li>Delegation - Users or organizations grant scoped permissions</li>
+                    <li>Verification - Every request includes proof of identity and authority</li>
+                </ul>
+                <br />
+                No new infrastructure required.
             </span>
         </div>
         <div class="Placeholder" aria-hidden="true"></div>
@@ -172,16 +230,15 @@
             <span class="section-label">Built for Both Sides</span>
             <span class="section-title">
                 <span class="text-style-1">One standard</span>
-                for agents and the platforms they touch
-
+                for agents and platforms
             </span>
             <span class="section-content">
-                MudraID works across modern and legacy environments — without requiring architectural change.
-                <br />
-                <br />
-                Static websites can verify agents at the edge.<br />
-                API-driven platforms can validate identity directly.<br />
-                Existing gateways and infrastructure remain in control.
+                MudraID works across modern and legacy systems without forcing architectural changes.
+                <ul class="section-list">
+                    <li>Static sites can verify at the edge</li>
+                    <li>APIs validate requests directly</li>
+                    <li>Existing gateways stay in control</li>
+                </ul>
             </span>
 
 
@@ -245,23 +302,20 @@
         <div class="Content">
             <span class="section-label">Trust Without Friction</span>
             <span class="section-title">
-                <span class="text-style-1">Stop</span>
-                guessing. Verify identity
-
+                <span class="text-style-1">Stop</span> guessing. Start verifying.
             </span>
             <span class="section-content">
-                Today’s defenses were built to block bots—not to recognize legitimate automation. CAPTCHAs and
-                heuristics treat every agent as suspicious by default.
+                Traditional systems try to block bots. That approach fails for legitimate AI agents.
+                <br /><br />
+                MudraID replaces guesswork with identity:
+                <ul class="section-list">
+                    <li>No CAPTCHAs</li>
+                    <li>Fewer false positives</li>
+                    <li>Clear accountability</li>
+                </ul>
                 <br />
-                <br />
-                MudraID takes a different approach: identity first, verified at the moment of interaction.
+                Every interaction is verified — instantly.
             </span>
-            <ul class="section-list">
-                <li>No challenges → identity is verified cryptographically</li>
-                <li>Fewer false positives → legitimate automation isn’t punished
-                </li>
-                <li>Clear accountability → actions are attributable and auditable</li>
-            </ul>
         </div>
         <div class="section-feature-visual home-section6-visual" aria-hidden="true">
             <div class="home-section6-anim-wrap home-section6-slides state-a" id="home-section6-slides">
@@ -331,12 +385,12 @@
             <div class="button-wrapper">
                 <div class="Buttons-primary">
                     <span class="Primary">
-                        Create an account
+                        Create Account
                     </span>
                 </div>
                 <div class="Buttons-secondary">
                     <span class="Secondary">
-                        View documentation
+                        View Documentation
                     </span>
                 </div>
             </div>
@@ -357,7 +411,7 @@
             <div class="button-wrapper">
                 <div class="Buttons-primary">
                     <span class="Primary">
-                        Create an account
+                        Create Account
                     </span>
                 </div>
                 <div class="Buttons-secondary">
@@ -381,8 +435,8 @@
                             loading="lazy" decoding="async" aria-hidden="true">
                         <span class="site-footer-logo-text">MudraID</span>
                     </a>
-                    <p class="site-footer-desc">Lorem ipsum dolor sit amet consectetur. Enim nulla suscipit leo integer
-                        bibendum ultrices. Nulla sed arcu amet montes tellus sit sem quis.</p>
+                    <p class="site-footer-desc">Secure identity and trust infrastructure for AI agents.
+                        Verify agents, delegate authority, and scale automation with confidence.</p>
                     <div class="site-footer-social">
                         <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -535,10 +589,25 @@
                 </div>
             </div>
 
-            <p class="site-footer-copyright">©Copyright MudraID 2026. Design by DesignFactory</p>
+            <p class="site-footer-copyright">© 2026 MudraID. All rights reserved.</p>
         </div>
     </footer>
     <script src="./assets/styles/js/home/home.js" defer></script>
+    <script>
+        (function () {
+            var loader = document.getElementById('pageLoader');
+            if (!loader) return;
+            var start = Date.now();
+            window.addEventListener('load', function () {
+                var elapsed = Date.now() - start;
+                var delay = Math.max(0, 600 - elapsed); // show for at least 600ms
+                setTimeout(function () {
+                    loader.classList.add('is-hidden');
+                    setTimeout(function () { loader.remove(); }, 600);
+                }, delay);
+            });
+        })();
+    </script>
 </body>
 
 </html>

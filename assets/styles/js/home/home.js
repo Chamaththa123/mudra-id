@@ -7,6 +7,181 @@
 (function () {
   'use strict';
 
+  /**
+   * Hero background MP4: seamless infinite loop via crossfade between two
+   * identical video layers.  The back video fades in ON TOP of the front so
+   * there is never a moment where the background is visible (no flash).
+   */
+  (function heroBgVideo() {
+    var stack = document.querySelector('.site-hero-bg-video-stack');
+    var nodes = stack
+      ? stack.querySelectorAll('.site-hero-bg-video')
+      : document.querySelectorAll('.site-hero-bg-video');
+
+    function tryPlay(el) {
+      var p = el.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
+
+    if (!nodes.length) return;
+
+    /* ── single-video fallback (just use native loop) ── */
+    if (nodes.length < 2) {
+      var single = nodes[0];
+      single.loop = true;
+      single.addEventListener('playing', function () {
+        single.style.opacity = '1';
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) tryPlay(single);
+      });
+      window.addEventListener('pageshow', function () { tryPlay(single); });
+      tryPlay(single);
+      return;
+    }
+
+    /* ── dual-video crossfade loop ── */
+    var v = [nodes[0], nodes[1]];
+    var frontIdx = 0;
+    var CROSSFADE_MS = 600;
+    var crossfading = false;
+
+    function frontEl() { return v[frontIdx]; }
+    function backEl()  { return v[1 - frontIdx]; }
+
+    /**
+     * Crossfade: play the back video from 0, wait for its first decoded
+     * frame, then fade it in over the still-visible front.  Only after the
+     * fade completes do we hide / reset the old front.
+     */
+    function startCrossfade() {
+      if (crossfading) return;
+      var f = frontEl();
+      var b = backEl();
+      if (!f.duration || !isFinite(f.duration)) return;
+
+      crossfading = true;
+
+      /* keep front fully visible while we prepare the back */
+      f.style.opacity = '1';
+      f.style.transition = '';
+      f.style.zIndex = '2';
+
+      b.style.opacity = '0';
+      b.style.transition = '';
+      b.style.zIndex = '3';          /* back goes on TOP */
+
+      /* reset back video to the start */
+      b.pause();
+      try { b.currentTime = 0; } catch (e) {}
+
+      function doFadeIn() {
+        b.style.transition = 'opacity ' + CROSSFADE_MS + 'ms ease-in-out';
+        void b.offsetWidth;           /* force reflow */
+        b.style.opacity = '1';
+
+        var done = false;
+        function settle() {
+          if (done) return;
+          done = true;
+          b.removeEventListener('transitionend', onEnd);
+
+          /* back is fully opaque → safe to hide old front */
+          f.pause();
+          try { f.currentTime = 0; } catch (e) {}
+          f.style.opacity = '0';
+          f.style.transition = '';
+          f.style.zIndex = '1';
+
+          b.style.zIndex = '2';
+          b.style.transition = '';
+
+          frontIdx = 1 - frontIdx;
+          crossfading = false;
+        }
+        function onEnd(e) {
+          if (e && e.propertyName !== 'opacity') return;
+          settle();
+        }
+        b.addEventListener('transitionend', onEnd);
+        setTimeout(settle, CROSSFADE_MS + 200);   /* safety */
+      }
+
+      function beginPlayback() {
+        var pr = b.play();
+
+        function afterPlay() {
+          /* wait until a real frame is composited before fading in */
+          if (typeof b.requestVideoFrameCallback === 'function') {
+            var ran = false;
+            var h = b.requestVideoFrameCallback(function () {
+              if (ran) return; ran = true;
+              try { b.cancelVideoFrameCallback(h); } catch (e) {}
+              doFadeIn();
+            });
+            setTimeout(function () { if (!ran) { ran = true; doFadeIn(); } }, 250);
+          } else {
+            requestAnimationFrame(function () {
+              requestAnimationFrame(doFadeIn);
+            });
+          }
+        }
+
+        if (pr && typeof pr.then === 'function') {
+          pr.then(afterPlay).catch(afterPlay);
+        } else {
+          afterPlay();
+        }
+      }
+
+      if (b.seeking) {
+        b.addEventListener('seeked', function fn() {
+          b.removeEventListener('seeked', fn);
+          beginPlayback();
+        });
+      } else {
+        requestAnimationFrame(beginPlayback);
+      }
+    }
+
+    /* ── wire up events on both videos ── */
+    v.forEach(function (el) {
+      el.loop = false;
+
+      el.addEventListener('playing', function () {
+        if (!crossfading && el === frontEl()) el.style.opacity = '1';
+      });
+
+      el.addEventListener('timeupdate', function () {
+        if (el !== frontEl() || crossfading) return;
+        var d = el.duration;
+        if (!d || !isFinite(d)) return;
+        var fadeAt = d - (CROSSFADE_MS / 1000) - 0.2;
+        if (el.currentTime >= Math.max(0.1, fadeAt)) startCrossfade();
+      });
+
+      el.addEventListener('ended', function () {
+        if (el !== frontEl() || crossfading) return;
+        startCrossfade();
+      });
+    });
+
+    /* ── init ── */
+    frontEl().style.zIndex = '2';
+    frontEl().style.opacity = '0';
+    backEl().style.zIndex = '1';
+    backEl().style.opacity = '0';
+
+    tryPlay(frontEl());
+
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) tryPlay(frontEl());
+    });
+    window.addEventListener('pageshow', function () {
+      tryPlay(frontEl());
+    });
+  })();
+
   var animatedObjects = Array.prototype.slice.call(
     document.querySelectorAll('.home-animated-svg-object, .home-hero-animated-svg-object')
   );
