@@ -8,11 +8,15 @@
   'use strict';
 
   /**
-   * Hero background MP4: seamless loop via crossfade between two layers (hides decoder seam at loop point).
+   * Hero background MP4: seamless infinite loop via crossfade between two
+   * identical video layers.  The back video fades in ON TOP of the front so
+   * there is never a moment where the background is visible (no flash).
    */
   (function heroBgVideo() {
     var stack = document.querySelector('.site-hero-bg-video-stack');
-    var nodes = stack ? stack.querySelectorAll('.site-hero-bg-video') : document.querySelectorAll('.site-hero-bg-video');
+    var nodes = stack
+      ? stack.querySelectorAll('.site-hero-bg-video')
+      : document.querySelectorAll('.site-hero-bg-video');
 
     function tryPlay(el) {
       var p = el.play();
@@ -21,6 +25,7 @@
 
     if (!nodes.length) return;
 
+    /* ── single-video fallback (just use native loop) ── */
     if (nodes.length < 2) {
       var single = nodes[0];
       single.loop = true;
@@ -30,161 +35,145 @@
       document.addEventListener('visibilitychange', function () {
         if (!document.hidden) tryPlay(single);
       });
-      window.addEventListener('pageshow', function () {
-        tryPlay(single);
-      });
+      window.addEventListener('pageshow', function () { tryPlay(single); });
       tryPlay(single);
       return;
     }
 
+    /* ── dual-video crossfade loop ── */
     var v = [nodes[0], nodes[1]];
     var frontIdx = 0;
-    var CROSSFADE_MS = 320;
+    var CROSSFADE_MS = 600;
     var crossfading = false;
 
-    function frontEl() {
-      return v[frontIdx];
-    }
+    function frontEl() { return v[frontIdx]; }
+    function backEl()  { return v[1 - frontIdx]; }
 
-    function backEl() {
-      return v[1 - frontIdx];
-    }
-
-    function fadeWindowSec(duration) {
-      var w = CROSSFADE_MS / 1000 + 0.08;
-      return Math.min(w, Math.max(0.1, duration * 0.28));
-    }
-
-    function finishCrossfade() {
-      var f = frontEl();
-      var b = backEl();
-      f.pause();
-      try {
-        f.currentTime = 0;
-      } catch (e) {}
-      f.style.opacity = '0';
-      f.style.zIndex = '1';
-      f.style.transition = '';
-      b.style.zIndex = '2';
-      b.style.opacity = '1';
-      b.style.transition = '';
-      frontIdx = 1 - frontIdx;
-      crossfading = false;
-    }
-
+    /**
+     * Crossfade: play the back video from 0, wait for its first decoded
+     * frame, then fade it in over the still-visible front.  Only after the
+     * fade completes do we hide / reset the old front.
+     */
     function startCrossfade() {
       if (crossfading) return;
       var f = frontEl();
       var b = backEl();
-      var dur = f.duration;
-      if (!dur || !isFinite(dur)) return;
+      if (!f.duration || !isFinite(f.duration)) return;
 
       crossfading = true;
-      b.style.zIndex = '3';
+
+      /* keep front fully visible while we prepare the back */
+      f.style.opacity = '1';
+      f.style.transition = '';
       f.style.zIndex = '2';
 
-      var settled = false;
-      function settle(e) {
-        if (e && e.propertyName !== 'opacity') return;
-        if (settled) return;
-        settled = true;
-        f.removeEventListener('transitionend', settle);
-        requestAnimationFrame(function () {
-          finishCrossfade();
-        });
-      }
+      b.style.opacity = '0';
+      b.style.transition = '';
+      b.style.zIndex = '3';          /* back goes on TOP */
 
-      function applyOpacityCrossfade() {
-        var t = 'opacity ' + CROSSFADE_MS + 'ms ease-in-out';
-        b.style.transition = t;
-        f.style.transition = t;
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            f.style.opacity = '0';
-            b.style.opacity = '1';
-          });
-        });
-        f.addEventListener('transitionend', settle);
-        setTimeout(function () {
-          settle(null);
-        }, CROSSFADE_MS + 120);
-      }
+      /* reset back video to the start */
+      b.pause();
+      try { b.currentTime = 0; } catch (e) {}
 
-      function afterFirstPaint() {
-        var ran = false;
-        function go() {
-          if (ran) return;
-          ran = true;
-          applyOpacityCrossfade();
+      function doFadeIn() {
+        b.style.transition = 'opacity ' + CROSSFADE_MS + 'ms ease-in-out';
+        void b.offsetWidth;           /* force reflow */
+        b.style.opacity = '1';
+
+        var done = false;
+        function settle() {
+          if (done) return;
+          done = true;
+          b.removeEventListener('transitionend', onEnd);
+
+          /* back is fully opaque → safe to hide old front */
+          f.pause();
+          try { f.currentTime = 0; } catch (e) {}
+          f.style.opacity = '0';
+          f.style.transition = '';
+          f.style.zIndex = '1';
+
+          b.style.zIndex = '2';
+          b.style.transition = '';
+
+          frontIdx = 1 - frontIdx;
+          crossfading = false;
         }
-        if (typeof b.requestVideoFrameCallback === 'function') {
-          var h = b.requestVideoFrameCallback(function () {
-            try {
-              b.cancelVideoFrameCallback(h);
-            } catch (e2) {}
-            requestAnimationFrame(go);
-          });
-          setTimeout(go, 100);
-        } else {
-          requestAnimationFrame(function () {
-            requestAnimationFrame(go);
-          });
+        function onEnd(e) {
+          if (e && e.propertyName !== 'opacity') return;
+          settle();
         }
+        b.addEventListener('transitionend', onEnd);
+        setTimeout(settle, CROSSFADE_MS + 200);   /* safety */
       }
 
       function beginPlayback() {
         var pr = b.play();
+
+        function afterPlay() {
+          /* wait until a real frame is composited before fading in */
+          if (typeof b.requestVideoFrameCallback === 'function') {
+            var ran = false;
+            var h = b.requestVideoFrameCallback(function () {
+              if (ran) return; ran = true;
+              try { b.cancelVideoFrameCallback(h); } catch (e) {}
+              doFadeIn();
+            });
+            setTimeout(function () { if (!ran) { ran = true; doFadeIn(); } }, 250);
+          } else {
+            requestAnimationFrame(function () {
+              requestAnimationFrame(doFadeIn);
+            });
+          }
+        }
+
         if (pr && typeof pr.then === 'function') {
-          pr.then(afterFirstPaint).catch(afterFirstPaint);
+          pr.then(afterPlay).catch(afterPlay);
         } else {
-          afterFirstPaint();
+          afterPlay();
         }
       }
 
-      b.pause();
-      try {
-        b.currentTime = 0;
-      } catch (e) {}
-
       if (b.seeking) {
-        b.addEventListener(
-          'seeked',
-          function onSeeked() {
-            b.removeEventListener('seeked', onSeeked);
-            beginPlayback();
-          },
-          false
-        );
+        b.addEventListener('seeked', function fn() {
+          b.removeEventListener('seeked', fn);
+          beginPlayback();
+        });
       } else {
         requestAnimationFrame(beginPlayback);
       }
     }
 
+    /* ── wire up events on both videos ── */
     v.forEach(function (el) {
       el.loop = false;
+
       el.addEventListener('playing', function () {
-        if (crossfading && el === backEl()) return;
-        if (el === frontEl()) el.style.opacity = '1';
+        if (!crossfading && el === frontEl()) el.style.opacity = '1';
       });
+
       el.addEventListener('timeupdate', function () {
         if (el !== frontEl() || crossfading) return;
-        var fe = frontEl();
-        var d = fe.duration;
+        var d = el.duration;
         if (!d || !isFinite(d)) return;
-        if (fe.currentTime >= d - fadeWindowSec(d)) startCrossfade();
+        var fadeAt = d - (CROSSFADE_MS / 1000) - 0.2;
+        if (el.currentTime >= Math.max(0.1, fadeAt)) startCrossfade();
       });
+
       el.addEventListener('ended', function () {
         if (el !== frontEl() || crossfading) return;
         startCrossfade();
       });
     });
 
+    /* ── init ── */
     frontEl().style.zIndex = '2';
     frontEl().style.opacity = '0';
     backEl().style.zIndex = '1';
     backEl().style.opacity = '0';
 
     tryPlay(frontEl());
+
     document.addEventListener('visibilitychange', function () {
       if (!document.hidden) tryPlay(frontEl());
     });

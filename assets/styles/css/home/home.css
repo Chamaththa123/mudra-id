@@ -391,7 +391,7 @@ body {
   object-fit: cover;
   z-index: 1;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  /* No default transition — JS manages crossfade timing to prevent flash */
   transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
