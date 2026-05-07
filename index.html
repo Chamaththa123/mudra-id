@@ -28,7 +28,7 @@
             </a>
             <button class="site-header-menu-btn" aria-label="Open menu" aria-expanded="false">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 6h18M3 12h18M3 18h18" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 6h18M3 12h18M3 18h18" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </button>
             <nav class="site-header-nav" aria-label="Main navigation">
@@ -47,9 +47,14 @@
     <!-- Hero: background animation (SVGator) -->
     <section class="site-hero" aria-label="Hero">
         <div class="site-hero-bg" aria-hidden="true">
-            <video autoplay muted loop playsinline preload="auto" class="site-hero-bg-video" onplaying="this.style.opacity=1">
-                <source src="assets/animations/heroVideo.mp4" type="video/mp4">
-            </video>
+            <div class="site-hero-bg-video-stack">
+                <video autoplay muted playsinline preload="auto" class="site-hero-bg-video">
+                    <source src="assets/animations/heroVideo.mp4" type="video/mp4">
+                </video>
+                <video muted playsinline preload="auto" class="site-hero-bg-video">
+                    <source src="assets/animations/heroVideo.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
         <div class="site-hero-main">
             <div class="site-hero-content">
@@ -61,13 +66,12 @@
                         <span class="site-hero-title-line">infrastructure</span>
                         <span class="site-hero-title-line">for AI agents</span>
                     </h1>
-                    <p class="site-hero-desc">Give autonomous agents a verifiable identity, delegate authority safely,
-                        and
-                        verify requests at the moment of interaction — so automation can scale without breaking trust.
+                    <p class="site-hero-desc">Give every AI agent a verifiable identity. Delegate authority safely.
+                        Verify each request in real-time, so automation can scale without breaking trust.
                     </p>
                     <div class="site-hero-actions">
                         <a href="#" class="site-hero-btn site-hero-btn--primary">Get started</a>
-                        <a href="#" class="site-hero-btn site-hero-btn--secondary">View documentation</a>
+                        <a href="#" class="site-hero-btn site-hero-btn--secondary">View Documentation</a>
                     </div>
                 </div>
             </div>
@@ -79,8 +83,8 @@
         <div class="site-hero-dashboard">
             <picture>
                 <source media="(min-width: 577px) and (max-width: 1024px)" srcset="assets/img/tab_dashbaord.png">
-                <img src="assets/img/heroDashboardImage.png" alt="Product dashboard preview" class="site-hero-dashboard-img"
-                    width="640" height="400" loading="eager" decoding="async">
+                <img src="assets/img/heroDashboardImage.png" alt="Product dashboard preview"
+                    class="site-hero-dashboard-img" width="640" height="400" loading="eager" decoding="async">
             </picture>
         </div>
     </section>
@@ -95,12 +99,12 @@
                 <span class="text-style-1">Autonomous agents are now active participants.</span>
             </span>
             <span class="section-content">
-                AI agents browse, retrieve, transact, and communicate — often without human intervention. They’re
-                becoming part of the Internet's normal flow.
+                AI agents browse, retrieve data, execute transactions, and communicate often without human intervention.
+                They are becoming part of the internet’s normal flow.
                  <br />
                  <br />
-                But while the web can identify people and servers, it has no native way to recognize AI agents — who
-                they are, where they come from, or whether they can be trusted.
+                But while the web can identify users and servers, it has no native way to recognize AI agents, who they
+                are, where they come from, or whether they can be trusted.
             </span>
         </div>
         <div class="section1-shift-visual" aria-hidden="true">
@@ -108,9 +112,10 @@
                 class="section1-shift-svg section1-shift-svg--desktop" width="658" height="585"
                 aria-label="MudraID Core and Verification Gateway diagram"></object>
             <object data="assets/animations/Story%201%2C2%20Tablet.svg" type="image/svg+xml"
-                class="section1-shift-svg section1-shift-svg--tablet"  aria-hidden="true"></object>
+                class="section1-shift-svg section1-shift-svg--tablet" aria-hidden="true"></object>
             <object data="assets/animations/Story%201%20Mobile.svg" type="image/svg+xml"
-                class="section1-shift-svg section1-shift-svg--mobile" width="658" height="585" aria-hidden="true"></object>
+                class="section1-shift-svg section1-shift-svg--mobile" width="658" height="585"
+                aria-hidden="true"></object>
         </div>
     </div>
 
@@ -331,12 +336,12 @@
             <div class="button-wrapper">
                 <div class="Buttons-primary">
                     <span class="Primary">
-                        Create an account
+                        Create Account
                     </span>
                 </div>
                 <div class="Buttons-secondary">
                     <span class="Secondary">
-                        View documentation
+                        View Documentation
                     </span>
                 </div>
             </div>
@@ -357,7 +362,7 @@
             <div class="button-wrapper">
                 <div class="Buttons-primary">
                     <span class="Primary">
-                        Create an account
+                        Create Account
                     </span>
                 </div>
                 <div class="Buttons-secondary">
@@ -381,8 +386,8 @@
                             loading="lazy" decoding="async" aria-hidden="true">
                         <span class="site-footer-logo-text">MudraID</span>
                     </a>
-                    <p class="site-footer-desc">Lorem ipsum dolor sit amet consectetur. Enim nulla suscipit leo integer
-                        bibendum ultrices. Nulla sed arcu amet montes tellus sit sem quis.</p>
+                    <p class="site-footer-desc">Secure identity and trust infrastructure for AI agents.
+                        Verify agents, delegate authority, and scale automation with confidence.</p>
                     <div class="site-footer-social">
                         <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -535,7 +540,7 @@
                 </div>
             </div>
 
-            <p class="site-footer-copyright">©Copyright MudraID 2026. Design by DesignFactory</p>
+            <p class="site-footer-copyright">© 2026 MudraID. All rights reserved.</p>
         </div>
     </footer>
     <script src="./assets/styles/js/home/home.js" defer></script>

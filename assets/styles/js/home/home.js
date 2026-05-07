@@ -7,6 +7,192 @@
 (function () {
   'use strict';
 
+  /**
+   * Hero background MP4: seamless loop via crossfade between two layers (hides decoder seam at loop point).
+   */
+  (function heroBgVideo() {
+    var stack = document.querySelector('.site-hero-bg-video-stack');
+    var nodes = stack ? stack.querySelectorAll('.site-hero-bg-video') : document.querySelectorAll('.site-hero-bg-video');
+
+    function tryPlay(el) {
+      var p = el.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
+
+    if (!nodes.length) return;
+
+    if (nodes.length < 2) {
+      var single = nodes[0];
+      single.loop = true;
+      single.addEventListener('playing', function () {
+        single.style.opacity = '1';
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) tryPlay(single);
+      });
+      window.addEventListener('pageshow', function () {
+        tryPlay(single);
+      });
+      tryPlay(single);
+      return;
+    }
+
+    var v = [nodes[0], nodes[1]];
+    var frontIdx = 0;
+    var CROSSFADE_MS = 320;
+    var crossfading = false;
+
+    function frontEl() {
+      return v[frontIdx];
+    }
+
+    function backEl() {
+      return v[1 - frontIdx];
+    }
+
+    function fadeWindowSec(duration) {
+      var w = CROSSFADE_MS / 1000 + 0.08;
+      return Math.min(w, Math.max(0.1, duration * 0.28));
+    }
+
+    function finishCrossfade() {
+      var f = frontEl();
+      var b = backEl();
+      f.pause();
+      try {
+        f.currentTime = 0;
+      } catch (e) {}
+      f.style.opacity = '0';
+      f.style.zIndex = '1';
+      f.style.transition = '';
+      b.style.zIndex = '2';
+      b.style.opacity = '1';
+      b.style.transition = '';
+      frontIdx = 1 - frontIdx;
+      crossfading = false;
+    }
+
+    function startCrossfade() {
+      if (crossfading) return;
+      var f = frontEl();
+      var b = backEl();
+      var dur = f.duration;
+      if (!dur || !isFinite(dur)) return;
+
+      crossfading = true;
+      b.style.zIndex = '3';
+      f.style.zIndex = '2';
+
+      var settled = false;
+      function settle(e) {
+        if (e && e.propertyName !== 'opacity') return;
+        if (settled) return;
+        settled = true;
+        f.removeEventListener('transitionend', settle);
+        requestAnimationFrame(function () {
+          finishCrossfade();
+        });
+      }
+
+      function applyOpacityCrossfade() {
+        var t = 'opacity ' + CROSSFADE_MS + 'ms ease-in-out';
+        b.style.transition = t;
+        f.style.transition = t;
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            f.style.opacity = '0';
+            b.style.opacity = '1';
+          });
+        });
+        f.addEventListener('transitionend', settle);
+        setTimeout(function () {
+          settle(null);
+        }, CROSSFADE_MS + 120);
+      }
+
+      function afterFirstPaint() {
+        var ran = false;
+        function go() {
+          if (ran) return;
+          ran = true;
+          applyOpacityCrossfade();
+        }
+        if (typeof b.requestVideoFrameCallback === 'function') {
+          var h = b.requestVideoFrameCallback(function () {
+            try {
+              b.cancelVideoFrameCallback(h);
+            } catch (e2) {}
+            requestAnimationFrame(go);
+          });
+          setTimeout(go, 100);
+        } else {
+          requestAnimationFrame(function () {
+            requestAnimationFrame(go);
+          });
+        }
+      }
+
+      function beginPlayback() {
+        var pr = b.play();
+        if (pr && typeof pr.then === 'function') {
+          pr.then(afterFirstPaint).catch(afterFirstPaint);
+        } else {
+          afterFirstPaint();
+        }
+      }
+
+      b.pause();
+      try {
+        b.currentTime = 0;
+      } catch (e) {}
+
+      if (b.seeking) {
+        b.addEventListener(
+          'seeked',
+          function onSeeked() {
+            b.removeEventListener('seeked', onSeeked);
+            beginPlayback();
+          },
+          false
+        );
+      } else {
+        requestAnimationFrame(beginPlayback);
+      }
+    }
+
+    v.forEach(function (el) {
+      el.loop = false;
+      el.addEventListener('playing', function () {
+        if (crossfading && el === backEl()) return;
+        if (el === frontEl()) el.style.opacity = '1';
+      });
+      el.addEventListener('timeupdate', function () {
+        if (el !== frontEl() || crossfading) return;
+        var fe = frontEl();
+        var d = fe.duration;
+        if (!d || !isFinite(d)) return;
+        if (fe.currentTime >= d - fadeWindowSec(d)) startCrossfade();
+      });
+      el.addEventListener('ended', function () {
+        if (el !== frontEl() || crossfading) return;
+        startCrossfade();
+      });
+    });
+
+    frontEl().style.zIndex = '2';
+    frontEl().style.opacity = '0';
+    backEl().style.zIndex = '1';
+    backEl().style.opacity = '0';
+
+    tryPlay(frontEl());
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) tryPlay(frontEl());
+    });
+    window.addEventListener('pageshow', function () {
+      tryPlay(frontEl());
+    });
+  })();
+
   var animatedObjects = Array.prototype.slice.call(
     document.querySelectorAll('.home-animated-svg-object, .home-hero-animated-svg-object')
   );
